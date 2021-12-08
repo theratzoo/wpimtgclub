@@ -1,34 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### WPI MTG Club official website!
 
-## Getting Started
+This is the repository containing all the code to the website. 
 
-First, run the development server:
+Currently, there is nothing here! Except this README, and the below To-Do list:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- figure out what our domain name will be (wpimtg.com? wpimtgclub.com? something else?)
+- decide what service to use for hosting purposes (Vercel seems like a good free solution, or anything else w/ serverless functions)
+- create simple models/storyboards
+- (optional) create dummy code to understand how to use TCGplayer' API
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Below are all the features we plan to implement in the website:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- a home page that has a brief about us and other stuff like discord link, club execs, etc.
+- have a page for the cards that the club is selling, with live pricing, card hovering (deckbox.org has a solution for this), and a method to reserve cards so you can buy them from the club. oh and a search and filter feature of course!
+- an online events calendar that will show casuals, upcoming drafts, and other events like Gaming Weekend
+- definitely somewhere to fill out a form for any ideas/suggestions/bugs/whatever
+- any other ideas that we come up with along the way
