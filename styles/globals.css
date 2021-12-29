@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.refreshImg {
+  height:25px;
+  width:25px;
+}
