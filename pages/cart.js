@@ -96,16 +96,10 @@ export default class Cart extends React.Component {
             <br/>
             <h3 id="total">{"Total: $" + total}</h3>
             <br/>
-            <div className="row">
-                <div className="col-sm-6">
-                        <h4>Name</h4>
-                        <h4>Email Address</h4>
-                        <h4>Payment Option</h4>
-                </div>
-                <div className="col-sm-6">
-                    <input id="buyerName" name="name" type="text" placeholder="name..."></input>
-                    <input id="buyerEmail" name="email" type="email" placeholder="email..."></input>
-                    <div className="form-check">
+            <h4>Name&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerName" name="name" type="text" placeholder="name..."/></h4>
+            <h4>Email Address&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerEmail" name="email" type="email" placeholder="email..."/></h4>
+            <h4>Payment Option</h4>
+                <div className="form-check">
                         <input className="form-check-input" type="radio" name="paymentMethods" id="paypal" onClick={() => document.getElementById('reserve').disabled = isCartEmpty}/>
                         <label className="form-check-label" htmlFor="paypal">
                             PayPal
@@ -123,8 +117,13 @@ export default class Cart extends React.Component {
                             Cash
                         </label>
                     </div>
-                </div>
-            </div>
+                        
+                
+                
+                    
+                    
+                    
+       
             <br/>
             <br/>
             <p>Note: once you click &quot;confirm checkout&quot;, you have one week to pay for the cards, or else you will have to re-order at the new prices. Prices will NOT change during the one-week reserve period.</p>
@@ -134,4 +133,4 @@ export default class Cart extends React.Component {
 	}
 	
 }
-//"emailjs-com": "^3.2.0",
+//TODO: for the name and email inputs, add a label for them instead of h4 tags! small thing
