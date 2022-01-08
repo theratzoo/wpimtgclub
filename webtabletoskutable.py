@@ -83,7 +83,7 @@ for i in range(line_count):
     else:
         sku = csv_data[i][6]
         productId = csv_data[i][7]
-    entry = {"Card Name": csv_data[i][0], "Quantity": csv_data[i][1], "Set": csv_data[i][2], "Condition": csv_data[i][3], "Foil": csv_data[i][4], "Language": csv_data[i][5], "SKU": sku, "Product Id": productId}
+    entry = {"WPI Id": i, "Card Name": csv_data[i][0], "Quantity": csv_data[i][1], "Set": csv_data[i][2], "Condition": csv_data[i][3], "Foil": csv_data[i][4], "Language": csv_data[i][5], "SKU": sku, "Product Id": productId}
     new_data.append(entry)
 
 keys = new_data[0].keys()

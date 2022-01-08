@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
+"emailjs-com": "^3.2.0",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-bootstrap": "^2.0.3",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-dropdown-select": "^4.8.0",
+    "react-select": "^5.2.1"
   },
   "devDependencies": {
     "csv-loader": "^3.0.3",

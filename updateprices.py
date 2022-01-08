@@ -27,7 +27,7 @@ with open('pages/mtg_card_catalog.csv') as csv_file:
 
 
 for i in range(line_count):
-    sku = csv_data[i][6]
+    sku = csv_data[i][7]
     url = "https://api.tcgplayer.com/pricing/sku/" + sku
     response = requests.request("GET", url, headers=headers)
     formatted_res = json.loads(response.text)
@@ -44,7 +44,7 @@ for i in range(line_count):
         price += ".00"
     elif price.index(".") + 2 == len(price):
         price += "0"
-    entry = {"Card Name": csv_data[i][0], "Quantity": csv_data[i][1], "Set": csv_data[i][2], "Condition": csv_data[i][3], "Foil": csv_data[i][4], "Language": csv_data[i][5], "SKU": sku, "Product Id": csv_data[i][7], "Price": price}
+    entry = {"WPI Id": csv_data[i][0], "Card Name": csv_data[i][1], "Quantity": csv_data[i][2], "Set": csv_data[i][3], "Condition": csv_data[i][4], "Foil": csv_data[i][5], "Language": csv_data[i][6], "SKU": sku, "Product Id": csv_data[i][8], "Price": price}
     new_data.append(entry)
 
 keys = new_data[0].keys()
