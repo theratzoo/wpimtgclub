@@ -246,6 +246,20 @@ export default class Catalog extends React.Component {
 		}
 	}
 
+	fixPrice(pr) {
+		let new_pr = pr;
+		if(pr.indexOf(".") == -1) { //xxx
+			new_pr = new_pr + ".00";
+			return new_pr;
+		}
+		else if(pr.indexOf(".") + 3 == pr.length) { //xxx.13
+			return new_pr;
+		} else { //xxx.1
+			new_pr = new_pr + "0";
+			return new_pr;
+		}
+	}
+
 	//TODO: create filter that stops ppl from typing negatives or "e" or other crap into cart!
 	render() {
 		const handleToUpdate = this.handleToUpdate
@@ -306,7 +320,7 @@ export default class Catalog extends React.Component {
 									<td>{card["Set"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
 									<td>{card["Condition"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
 									<td>{card["Foil"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td>{"$" + card["Price"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+									<td>{"$" + this.fixPrice(card["Price"])}</td>&nbsp;&nbsp;&nbsp;&nbsp;
 									<td><Select value={this.state.markCartItems[card["WPI Id"]]} options={this.getItems(card["Quantity"])} onChange={(val) => this.iDontCare(val, card["WPI Id"])} /></td>&nbsp;&nbsp;&nbsp;&nbsp;
 									<td><a href="javascript:void(0)"><img src="/images/addtocart.png" alt="Add to Cart" className="refreshImg" onClick={() => this.addToCart(card)}></img></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 								</tr>

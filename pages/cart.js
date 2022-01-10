@@ -43,6 +43,21 @@ export default class Cart extends React.Component {
               console.log(error.text);
           });
       }
+
+      //TODO: since i use this in multiple files, we can move it to its own and import it...
+      fixPrice(pr) {
+		let new_pr = pr;
+		if(pr.indexOf(".") == -1) { //xxx
+			new_pr = new_pr + ".00";
+			return new_pr;
+		}
+		else if(pr.indexOf(".") + 3 == pr.length) { //xxx.13
+			return new_pr;
+		} else { //xxx.1
+			new_pr = new_pr + "0";
+			return new_pr;
+		}
+	}
 	
 	render() {
         const tempCart = this.props.cart + "";
@@ -87,14 +102,14 @@ export default class Cart extends React.Component {
                         <td>{card["Set"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
                         <td>{card["Condition"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
                         <td>{card["Foil"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <td>{"$" + card["Price"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td>{"$" + this.fixPrice(card["Price"])}</td>&nbsp;&nbsp;&nbsp;&nbsp;
                     </tr>
                     )}
                 </tbody>
             </table>
             </div>
             <br/>
-            <h3 id="total">{"Total: $" + total}</h3>
+            <h3 id="total">{"Total: $" + this.fixPrice(total.toString())}</h3>
             <br/>
             <h4>Name&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerName" name="name" type="text" placeholder="name..."/></h4>
             <h4>Email Address&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerEmail" name="email" type="email" placeholder="email..."/></h4>
