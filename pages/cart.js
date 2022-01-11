@@ -46,12 +46,12 @@ export default class Cart extends React.Component {
 
       //TODO: since i use this in multiple files, we can move it to its own and import it...
       fixPrice(pr) {
-		let new_pr = pr;
-		if(pr.indexOf(".") == -1) { //xxx
+		let new_pr = pr.toString();
+		if(new_pr.indexOf(".") == -1) { //xxx
 			new_pr = new_pr + ".00";
 			return new_pr;
 		}
-		else if(pr.indexOf(".") + 3 == pr.length) { //xxx.13
+		else if(new_pr.indexOf(".") + 3 == new_pr.length) { //xxx.13
 			return new_pr;
 		} else { //xxx.1
 			new_pr = new_pr + "0";
