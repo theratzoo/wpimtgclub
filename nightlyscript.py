@@ -72,10 +72,12 @@ for i in range(0,totalItems, 100):
 
 keys = results_list[0].keys()
 
-with open('allcards0.csv', 'w', newline='') as output_file:
+with open('allcards0_LOCAL.csv', 'w', newline='') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(results_list)
 
 # TODO: make a set conversion dictionary/table thing that converts the set names found in TCGPlayer links to a 3 letter setcode. We do this because thats the only way we get set names of cards :(
 # TODO: so IMO the ONLY thing we need to update daily is prices. so stuff like getting ids and skus is something that can happen once a month or something like that. then after that we can do the once a day thing be translating every SKU into a price (note: there is a thing that lets u do multiple SKUs at once, List SKU Market Prices, so we just do that!)
+
+#TODO: rename this (and other scripts) and move scripts to folders and just make em more organized. AND DOCUMENT THEM AND THE WORKFLOW

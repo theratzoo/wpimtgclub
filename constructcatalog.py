@@ -11,7 +11,7 @@ results_list = []
 headers = {"Accept": "application/json"}
 skus_found = 0 # for debugging purposes...
 csv_data = []
-with open('pages/mtg_card_catalog_TMP.csv') as csv_file:
+with open('pages/mtg_card_catalog.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = -1
     for row in csv_reader:
@@ -20,7 +20,7 @@ with open('pages/mtg_card_catalog_TMP.csv') as csv_file:
             csv_data.append(row)
 
 csv_data_skus = []
-with open('allcardsskus.csv') as csv_file:
+with open('allcardsskus_LOCAL.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count_2 = -1
     for row in csv_reader:
