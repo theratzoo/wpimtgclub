@@ -34,6 +34,8 @@ export default class Catalog extends React.Component {
 			markCartItems:markCartItems, // TODO: rename to tempCartItems
 			currentCartItems:currentCartItems,
 			displayCart:false,
+			pageNumber:1,
+			maxPages:0,
 		}
 		const handleToUpdate = this.handleToUpdate.bind(this);
 	}
@@ -260,6 +262,26 @@ export default class Catalog extends React.Component {
 		}
 	}
 
+	nextPg(max) {
+		if(this.state.pageNumber+1==max) {
+			return; // TODO: find better way (greye out, alert, etc)
+		} else {
+			this.setState({
+				pageNumber: this.state.pageNumber+1
+			})
+		}
+	}
+
+	prevPg(max) { //TODO: since we dont need max here, just remove it as parameter lol
+		if(this.state.pageNumber-1==0) {
+			return; // TODO: find better way (greye out, alert, etc)
+		} else {
+			this.setState({
+				pageNumber: this.state.pageNumber-1
+			})
+		}
+	}
+
 	//TODO: create filter that stops ppl from typing negatives or "e" or other crap into cart!
 	render() {
 		const handleToUpdate = this.handleToUpdate
@@ -267,6 +289,14 @@ export default class Catalog extends React.Component {
 		console.log("RENDERING")
 		const data = this.state.data.filter(isCardAllowed.bind(this))
 		console.log(this.state.markCartItems)
+		const displayData = [];
+		for(let i=20*(this.state.pageNumber-1); i<20*this.state.pageNumber && i<data.length; i++) {
+			displayData.push(data[i]);
+		}
+		const maxPages = Math.round(data.length/20) + 1; // TODO: confirm this is correct, could b wrong (do easy test)
+
+		//TODO: add a filter that only allows 50 per page.
+
 		return (
 			<div>
 				<Head>
@@ -311,7 +341,7 @@ export default class Catalog extends React.Component {
 								</tr>
 							</thead>
 							<tbody>
-								{data.map((card, i)=> 
+								{displayData.map((card, i)=> 
 								<tr key={i}>
 									<td>
 										<CardHoverImage cardName={card["Card Name"]} productId={card["Product Id"]}/>
@@ -327,6 +357,11 @@ export default class Catalog extends React.Component {
 								)}
 							</tbody>
 						</table>
+						<br/>
+						<Button className="btn btn-primary" onClick={() => this.prevPg(maxPages)}>Prev</Button><Button className="btn btn-primary" onClick={() => this.nextPg(maxPages)}>Next</Button>
+						<h5>{"Page " + this.state.pageNumber + " of " + maxPages}</h5>
+						<br/>
+						<br/>
 					</div>
 				</main>
 			</div>

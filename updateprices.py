@@ -44,8 +44,10 @@ for i in range(line_count):
         price += ".00"
     elif price.index(".") + 2 == len(price):
         price += "0"
-    entry = {"WPI Id": csv_data[i][0], "Card Name": csv_data[i][1], "Quantity": csv_data[i][2], "Set": csv_data[i][3], "Condition": csv_data[i][4], "Foil": csv_data[i][5], "Language": csv_data[i][6], "SKU": sku, "Product Id": csv_data[i][8], "Price": price}
+    entry = {"WPI Id": csv_data[i][0], "Card Name": csv_data[i][1], "Quantity": csv_data[i][2], "Set": csv_data[i][3], "Condition": csv_data[i][4], "Foil": csv_data[i][5], "Language": csv_data[i][6], "SKU": csv_data[i][7], "Product Id": csv_data[i][8], "Mana Cost": csv_data[i][9], "CMC": csv_data[i][10], "Main Type": csv_data[i][11], "Sub Types": csv_data[i][12], "Is Legendary": csv_data[i][13], "Oracle Text": csv_data[i][14], "Legalities": csv_data[i][15], "Reserved List": csv_data[i][16], "Keywords": csv_data[i][17], "Rarity": csv_data[i][18], "Optionals": csv_data[i][19], "Price": price} 
     new_data.append(entry)
+    print("entry ", csv_data[i][1], " added!")
+    sleep(0.3)
 
 keys = new_data[0].keys()
 

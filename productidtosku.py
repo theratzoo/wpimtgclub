@@ -33,7 +33,6 @@ for i in range(line_count):
     response = requests.request("GET", url, headers=headers)
     formatted_res = json.loads(response.text)
     results = formatted_res['results']
-
     for x in results:
 
         result_item = {"skuId": x['skuId'] ,"name": csv_data[i][0], "set": csv_data[i][1], "productId": x['productId'], "languageId": x['languageId'], "printingId": x['printingId'], "conditionId": x['conditionId']}
