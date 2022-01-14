@@ -2,13 +2,7 @@ import React from 'react'
 import Select from "react-select";
 import Button from 'react-bootstrap/Button'
 
-/*
-<div>
-                <h4>Exact Mana Cost (format: 4WW)&nbsp;&nbsp;<input type="text" id="exactManaCost"></input></h4>
-            </div>
-*/
 
-//TODO: move these consts to a different file to import, for code hygen purposes...
 const comparisons = [
     { label: "Greater Than", value: 355 },
     { label: "Less Than", value: 54 },
@@ -31,8 +25,6 @@ const comparisons = [
     { label: "Green", value: 41 },
     { label: "Colorless", value: 40 },
   ];
-  //TODO: when bored, add more formats here! and test them to make sure that they actually work...
-  //base it off of scryfall
   const formats = [
     { label: "Standard", value: 355 },
     { label: "Modern", value: 54 },
@@ -42,7 +34,7 @@ const comparisons = [
     { label: "Pauper", value: 40 },
     { label: "Pioneer", value: 39 },
   ];
-  //TODO: finish this because this will be a pain
+
   const sets = [
     { label: "Standard", value: 355 },
     { label: "Modern", value: 54 },

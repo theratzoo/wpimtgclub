@@ -1,18 +1,14 @@
 ### WPI MTG Club official website!
 
-This is the repository containing all the code to the website. 
+This is the repository containing all the code to the website. Below is a list of code that is included in the repository:
 
-Currently, there is nothing here! Except this README, and the below To-Do list:
+* Scripts, which are used for getting data such as TCGPlayer Product Ids/SKUs, lowest price of cards, and Scryfall data for querying purposes.
 
-- figure out what our domain name will be (wpimtg.com? wpimtgclub.com? something else?)
-- decide what service to use for hosting purposes (Vercel seems like a good free solution, or anything else w/ serverless functions)
-- create simple models/storyboards
-- (optional) create dummy code to understand how to use TCGplayer' API
+* Spreadsheets to store the data and make it so the scripts don't have to be run all the time.
 
-Below are all the features we plan to implement in the website:
+* NextJS pages, which display the website.
 
-- a home page that has a brief about us and other stuff like discord link, club execs, etc.
-- have a page for the cards that the club is selling, with live pricing, card hovering (deckbox.org has a solution for this), and a method to reserve cards so you can buy them from the club. oh and a search and filter feature of course!
-- an online events calendar that will show casuals, upcoming drafts, and other events like Gaming Weekend
-- definitely somewhere to fill out a form for any ideas/suggestions/bugs/whatever
-- any other ideas that we come up with along the way
+The website can be viewed on the below link (temporary, will move to a dedicated domain in the future):
+* https://wpimtgclub.vercel.app/
+
+If you have any suggestions for the project, please shoot an email to wpimtgclub@gmail.com

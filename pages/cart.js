@@ -3,20 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import emailjs from 'emailjs-com';
-// TODO: add paddingRight to all th and td to make spacing look nice!
 
-//TODO (for total and for individual prices): make it so that they have "nice" prices... i.e., 2 digits after the decimal always~
-
-const wholeData = require('dsv-loader!./mtg_card_catalog.csv')
+const wholeData = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv')
 export default class Cart extends React.Component {
 	constructor(props) {
 		super(props);
         
 	}
 
-    // TODO: add email address via this function
-    // TODO: for name and email address, do not let them send the stuff w/o a valid email address and a blank name...
-    //(for email, we state we just use email address for confirmation and that is all...)
     sendEmail() {
         const name = document.getElementById('buyerName');
         let paymethod = "Paypal"; // default payment method is Paypal
@@ -44,7 +38,6 @@ export default class Cart extends React.Component {
           });
       }
 
-      //TODO: since i use this in multiple files, we can move it to its own and import it...
       fixPrice(pr) {
 		let new_pr = "" + pr;
 		if(new_pr.indexOf(".") == -1) { //xxx
@@ -74,9 +67,7 @@ export default class Cart extends React.Component {
         })
 
         total = Math.round(total*100) / 100;
-        console.log(total > 0)
         const isCartEmpty = total == 0;
-        //console.log("RE RENDERING CART " + data + " CART :  " + cart + "temp cart: " + tempCart)
 		return (
 			<div>	
             <br/>
@@ -148,4 +139,3 @@ export default class Cart extends React.Component {
 	}
 	
 }
-//TODO: for the name and email inputs, add a label for them instead of h4 tags! small thing
