@@ -7,6 +7,8 @@ import SearchMenu from './searchmenu.js'
 import Button from 'react-bootstrap/Button'
 import Select from "react-select";
 import Cart from './cart.js'
+import fixPrice from './functions/fixprice.js'
+import fixCondition from './functions/fixcondition.js'
 
 let data = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv')
 export default class Catalog extends React.Component {
@@ -121,77 +123,6 @@ export default class Catalog extends React.Component {
 		return true
 	}
 
-	refreshPrice(sku, i, oldPrice) {
-		let price = oldPrice
-		const options = {method: 'GET', headers: {Accept: 'application/json', "Authorization": "bearer " + process.env.NEXT_PUBLIC_BEARER}};
-		fetch(`https://api.tcgplayer.com/pricing/sku/${sku}`, options)
-		.then(response => response.json())
-		.then(response => { 
-			if(response.results[0]["lowPrice"] < 5) {
-				price = Math.round(response.results[0]["lowPrice"] * 0.9, 2)
-			} else {
-				price = Math.round(response.results[0]["lowestListingPrice"] * 0.9, 2)
-			}
-		})
-		.catch(err => console.error(err));
-		if(price != oldPrice) {
-			console.log("update new price into sheet!")
-			data[i]['Price'] = price
-			this.setState({
-				data:[...data]
-			})
-		}
-		
-	}
-
-	// depricated: see addToCart(card)
-	updateCart(card, i) {
-		const input = document.getElementById("addToCart" + i);
-		let cartChange = input.value;
-		// step 1: update cartChange if its value is inaccurate (either an invalid value, or too large)
-		if(cartChange.includes("-") || cartChange.includes(".") || cartChange.includes("e")) {
-			input.value = "";
-			return;
-		}
-		if(cartChange > card["Quantity"]) {
-			input.value = ""
-			alert("yo dawg too many carts!") // TODO: make it nicer
-			return;
-		}
-
-		if(cartChange == "") {
-			cartChange = 0;
-		}
-
-
-		// step 2: go through the state, and see if its already in it. if it is, we update it. if not, we add it to the state
-		const currCart = this.state.cart;
-		let foundIt = false;
-		let change = 0
-		for(const x in currCart) {
-			if(x[0]["SKU"] == card["SKU"]) {
-				change = cartChange - x[1]
-				// we found a match: instead we just update!
-				x[1] = cartChange;
-				foundIt = true;
-				
-				break;
-			}
-		}
-		if(!foundIt) {
-			currCart.push([card, cartChange]);
-			change = cartChange;
-		}
-		this.setState({
-			cart:[...currCart]
-		});
-		// step 3: update total count variable so that cart can be reflected
-		this.setState({
-			cartTotalCount:this.state.cartTotalCount + change
-		});
-	}
-
-
 	getItems(q) {
 		const obj = [{label: "0"}]
 		for(let i=0; i<q; i++) {
@@ -233,20 +164,6 @@ export default class Catalog extends React.Component {
 			this.setState({
 				cartTotalCount:this.state.cartTotalCount + change
 			});
-		}
-	}
-
-	fixPrice(pr) {
-		let new_pr = "" + pr;
-		if(new_pr.indexOf(".") == -1) { //xxx
-			new_pr = new_pr + ".00";
-			return new_pr;
-		}
-		else if(new_pr.indexOf(".") + 3 == new_pr.length) { //xxx.13
-			return new_pr;
-		} else { //xxx.1
-			new_pr = new_pr + "0";
-			return new_pr;
 		}
 	}
 
@@ -316,29 +233,29 @@ export default class Catalog extends React.Component {
 						<table>
 							<thead>
 								<tr>
-									<th>Card Name</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Stock</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Set</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Condition</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Foil</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Price</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Quantity to Add</th>&nbsp;&nbsp;&nbsp;&nbsp;
-									<th>Add to Cart</th>&nbsp;&nbsp;&nbsp;&nbsp;
+									<th className="cardInfo">Card Name</th>
+									<th className="cardInfo">Stock</th>
+									<th className="cardInfo">Set</th>
+									<th className="cardInfo">Condition</th>
+									<th className="cardInfo">Foil</th>
+									<th className="cardInfo">Price</th>
+									<th className="cardInfo">Quantity to Add</th>
+									<th className="cardInfo">Add to Cart</th>
 								</tr>
 							</thead>
 							<tbody>
 								{displayData.map((card, i)=> 
 								<tr key={i}>
-									<td>
+									<td className="cardInfo">
 										<CardHoverImage cardName={card["Card Name"]} productId={card["Product Id"]}/>
-									</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td>{card["Quantity"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td>{card["Set"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td>{card["Condition"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td>{card["Foil"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td>{"$" + this.fixPrice(card["Price"])}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td><Select value={this.state.markCartItems[card["WPI Id"]]} options={this.getItems(card["Quantity"])} onChange={(val) => this.iDontCare(val, card["WPI Id"])} /></td>&nbsp;&nbsp;&nbsp;&nbsp;
-									<td><a href="javascript:void(0)"><img src="/images/addtocart.png" alt="Add to Cart" className="refreshImg" onClick={() => this.addToCart(card)}></img></a>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									</td>
+									<td className="cardInfo">{card["Quantity"]}</td>
+									<td className="cardInfo">{card["Set"]}</td>
+									<td className="cardInfo">{fixCondition(card["Condition"])}</td>
+									<td className="cardInfo">{card["Foil"]}</td>
+									<td className="cardInfo">{"$" + fixPrice(card["Price"])}</td>
+									<td className="cardInfo"><Select value={this.state.markCartItems[card["WPI Id"]]} options={this.getItems(card["Quantity"])} onChange={(val) => this.iDontCare(val, card["WPI Id"])} /></td>
+									<td className="cardInfo"><a href="javascript:void(0)"><img src="/images/addtocart.png" alt="Add to Cart" className="cartImg" onClick={() => this.addToCart(card)}></img></a></td>
 								</tr>
 								)}
 							</tbody>

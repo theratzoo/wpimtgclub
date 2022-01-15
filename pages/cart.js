@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import emailjs from 'emailjs-com';
+import fixPrice from './functions/fixprice.js'
+import fixCondition from './functions/fixcondition.js'
 
 const wholeData = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv')
 export default class Cart extends React.Component {
@@ -12,7 +14,9 @@ export default class Cart extends React.Component {
 	}
 
     sendEmail() {
-        const name = document.getElementById('buyerName');
+        if(this.confirmButtonState()) return; // button needs to be disabled. TODO: find way to call this when react page loads so i dont need to do this!
+        const name = document.getElementById('buyerName').value;
+        const email = document.getElementById('buyerEmail').value;
         let paymethod = "Paypal"; // default payment method is Paypal
         if(document.getElementById('venmo').checked) paymethod = "Venmo";
         if(document.getElementById('cash').checked) paymethod = "Cash";
@@ -27,7 +31,8 @@ export default class Cart extends React.Component {
             name: name, // ask for name!
             date: date, // that is all we need, no necessity for time
             order: order, // this will be giant text blob of order that we construct in this function
-            paymethod: paymethod// this is found out by seeing which one is checked. if none, we default to Paypal.
+            paymethod: paymethod,// this is found out by seeing which one is checked. if none, we default to Paypal.
+            sender_email: email,
         };
         
         emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE, template_params, process.env.NEXT_PUBLIC_EMAIL_USER)
@@ -38,19 +43,15 @@ export default class Cart extends React.Component {
           });
       }
 
-      fixPrice(pr) {
-		let new_pr = "" + pr;
-		if(new_pr.indexOf(".") == -1) { //xxx
-			new_pr = new_pr + ".00";
-			return new_pr;
-		}
-		else if(new_pr.indexOf(".") + 3 == new_pr.length) { //xxx.13
-			return new_pr;
-		} else { //xxx.1
-			new_pr = new_pr + "0";
-			return new_pr;
-		}
-	}
+    // returns whether button is disabled (true) or not disabled (false)
+    confirmButtonState() {
+        const name = document.getElementById('buyerName').value;
+        const email = document.getElementById('buyerEmail').value;
+        const isChecked = (document.getElementById('paypal').checked || document.getElementById('venmo').checked || document.getElementById('cash').checked)
+        const isInvalid = !(name != "" && /\S+@\S+\.\S+/.test(email) && isChecked);
+        document.getElementById('reserve').disabled = isInvalid;
+        return isInvalid;
+    }
 	
 	render() {
         const tempCart = this.props.cart + "";
@@ -75,35 +76,35 @@ export default class Cart extends React.Component {
             <table>
                 <thead>
                     <tr>
-                        <th>Card Name</th>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <th>Quantity Added</th>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <th>Set</th>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <th>Condition</th>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <th>Foil</th>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <th>Price Per Card</th>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <th className="cardInfo">Card Name</th>
+                        <th className="cardInfo">Quantity Added</th>
+                        <th className="cardInfo">Set</th>
+                        <th className="cardInfo">Condition</th>
+                        <th className="cardInfo">Foil</th>
+                        <th className="cardInfo">Price Per Card</th>
                     </tr>
                 </thead>
                 <tbody>
                     {data.map((card, i)=> 
                     <tr key={i}>
-                        <td>
+                        <td className="cardInfo">
                             <CardHoverImage cardName={card["Card Name"]} productId={card["Product Id"]}/>
-                        </td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <td>{cart[card["WPI Id"]]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <td>{card["Set"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <td>{card["Condition"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <td>{card["Foil"]}</td>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <td>{"$" + this.fixPrice(card["Price"])}</td>&nbsp;&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td className="cardInfo">{cart[card["WPI Id"]]}</td>
+                        <td className="cardInfo">{card["Set"]}</td>
+                        <td className="cardInfo">{fixCondition(card["Condition"])}</td>
+                        <td className="cardInfo">{card["Foil"]}</td>
+                        <td className="cardInfo">{"$" + fixPrice(card["Price"])}</td>
                     </tr>
                     )}
                 </tbody>
             </table>
             </div>
             <br/>
-            <h3 id="total">{"Total: $" + this.fixPrice(total.toString())}</h3>
+            <h3 id="total">{"Total: $" + fixPrice(total.toString())}</h3>
             <br/>
-            <h4>Name&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerName" name="name" type="text" placeholder="name..."/></h4>
-            <h4>Email Address&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerEmail" name="email" type="email" placeholder="email..."/></h4>
+            <h4>Name&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerName" name="name" type="text" placeholder="name..." onBlur={() => this.confirmButtonState()}/></h4>
+            <h4>Email Address&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerEmail" name="email" type="email" placeholder="email..." onBlur={() => this.confirmButtonState()}/></h4>
             <h4>Payment Option</h4>
                 <div className="form-check">
                         <input className="form-check-input" type="radio" name="paymentMethods" id="paypal" onClick={() => document.getElementById('reserve').disabled = isCartEmpty}/>
@@ -132,7 +133,7 @@ export default class Cart extends React.Component {
        
             <br/>
             <br/>
-            <p>Note: once you click &quot;confirm checkout&quot;, you have one week to pay for the cards, or else you will have to re-order at the new prices. Prices will NOT change during the one-week reserve period.</p>
+            <p>Notice: once you click &quot;confirm checkout&quot;, you have one week to pay for the cards, or else you will have to re-order at the new prices. Prices will NOT change during the one-week reserve period. You MUST also hit the confirmation link in your email that you receive, or else the cards will not be reserved (this is to prevent botting).</p>
             <h4><Button class="btn btn-primary" disabled={false} id='reserve' onClick={() => this.sendEmail()}>Confirm Checkout (Reserve Cards)</Button></h4>
         </div>
 		)

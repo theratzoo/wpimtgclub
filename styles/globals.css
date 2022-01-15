@@ -15,7 +15,11 @@ a {
   box-sizing: border-box;
 }
 
-.refreshImg {
+.cartImg {
   height:25px;
   width:25px;
+}
+
+td.cardInfo, th.cardInfo {
+  padding-right:20px;
 }

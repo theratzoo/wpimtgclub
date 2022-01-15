@@ -23,22 +23,19 @@ All JS:
 - styling! we can talk and figure that out w/ help of other ppl
 
 CartJS/CatalogJS:
-- add paddingRight to all th and td to make spacing look nice (as opposed to my current ugly method of using manual spacing)
-- since i use fixPrice function in multiple files, we can move it to its own and import it...
-- change condition to full names, or have a key that explains what they stand for. Can also format it based on user's device (smaller screen = MP, larger = Moderately Played)
 - for foil, can include “Nonfoil” and “Foil” (or have foil symbol, but that can be confusing)
 
 CartJS:
-- add email address via this function
-- for name and email address, do not let them send the stuff w/o a valid email address and a blank name... (disable button and/or warning works)
-- (for email, we state we just use email address for confirmation and that is all...)
 - for the name and email inputs, add a label for them instead of h4 tags! small thing
+- for the sent email, i need to add a link to it that users must click to validate that they have receieved the email & are reserving the card. otherwise it wont be reserved for them. this is to ensure that bots arent trolling etc.
+- add way to clear cart/remove a single item
+- when you send email, do following: (1) clear cart (2) update inventory (3) hide cart again (4) send a popup saying "Order has been confirmed"
+- ASAP: add capcha to stop bots from emailing!
 
 CatalogJS:
 - finish filters and add more
 - add way to sort the cards (alphabetica, cmc, price, any other way ppl come up with)
 - fix the setsFilter (BEFORE ADDING NEW FILTERS)
-- remove refresh stuff since we are not doing that.
 - for next and previous page, if you cannot go further, you grey out the button (disable it) until you can more forward.
 
 Home Page:

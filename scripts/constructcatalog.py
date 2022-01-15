@@ -98,7 +98,7 @@ for i in range(line_count):
     if formatted_res['object'] == 'error' and csv_data[i][2] == 'TSP': #for the edge-case of timeshifted cards...
         url = "https://api.scryfall.com/cards/named?exact=" + reformatted_name + "&set=" + "TSB"
         response = requests.request("GET", url, headers=headers)
-        formatted_res = json.loads(response.text)
+        formatted_res = json.loads(response.text) #TODO: check if this is needed anymore, if not delete
     #if 'card_faces' in formatted_res: TODO: for now we are ignoring these cards because they are too hard to deal w/ and i wanna focus on getting stuff done...
 
     mana_cost = formatted_res['mana_cost'] # GOOD
