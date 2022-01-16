@@ -10,11 +10,12 @@ const wholeData = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv')
 export default class Cart extends React.Component {
 	constructor(props) {
 		super(props);
-        
+        this.state = {
+            isConfirmDisabled: true,
+        }
 	}
 
     sendEmail() {
-        if(this.confirmButtonState()) return; // button needs to be disabled. TODO: find way to call this when react page loads so i dont need to do this!
         const name = document.getElementById('buyerName').value;
         const email = document.getElementById('buyerEmail').value;
         let paymethod = "Paypal"; // default payment method is Paypal
@@ -49,7 +50,9 @@ export default class Cart extends React.Component {
         const email = document.getElementById('buyerEmail').value;
         const isChecked = (document.getElementById('paypal').checked || document.getElementById('venmo').checked || document.getElementById('cash').checked)
         const isInvalid = !(name != "" && /\S+@\S+\.\S+/.test(email) && isChecked);
-        document.getElementById('reserve').disabled = isInvalid;
+        this.setState({
+            isConfirmDisabled: isInvalid
+        });
         return isInvalid;
     }
 	
@@ -107,19 +110,19 @@ export default class Cart extends React.Component {
             <h4>Email Address&nbsp;&nbsp;&nbsp;&nbsp;<input id="buyerEmail" name="email" type="email" placeholder="email..." onBlur={() => this.confirmButtonState()}/></h4>
             <h4>Payment Option</h4>
                 <div className="form-check">
-                        <input className="form-check-input" type="radio" name="paymentMethods" id="paypal" onClick={() => document.getElementById('reserve').disabled = isCartEmpty}/>
+                        <input className="form-check-input" type="radio" name="paymentMethods" id="paypal" onClick={() => this.confirmButtonState()}/>
                         <label className="form-check-label" htmlFor="paypal">
                             PayPal
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="paymentMethods" id="venmo" onClick={() => document.getElementById('reserve').disabled = isCartEmpty}/>
+                        <input className="form-check-input" type="radio" name="paymentMethods" id="venmo" onClick={() => this.confirmButtonState()}/>
                         <label className="form-check-label" htmlFor="venmo">
                             Venmo
                         </label>
                     </div>
                     <div className="form-check">
-                        <input className="form-check-input" type="radio" name="paymentMethods" id="cash" onClick={() => document.getElementById('reserve').disabled = isCartEmpty}/>
+                        <input className="form-check-input" type="radio" name="paymentMethods" id="cash" onClick={() => this.confirmButtonState()}/>
                         <label className="form-check-label" htmlFor="cash">
                             Cash
                         </label>
@@ -134,7 +137,7 @@ export default class Cart extends React.Component {
             <br/>
             <br/>
             <p>Notice: once you click &quot;confirm checkout&quot;, you have one week to pay for the cards, or else you will have to re-order at the new prices. Prices will NOT change during the one-week reserve period. You MUST also hit the confirmation link in your email that you receive, or else the cards will not be reserved (this is to prevent botting).</p>
-            <h4><Button class="btn btn-primary" disabled={false} id='reserve' onClick={() => this.sendEmail()}>Confirm Checkout (Reserve Cards)</Button></h4>
+            <h4><Button class="btn btn-primary" disabled={this.state.isConfirmDisabled} id='reserve' onClick={() => this.sendEmail()}>Confirm Checkout (Reserve Cards)</Button></h4>
         </div>
 		)
 	}
