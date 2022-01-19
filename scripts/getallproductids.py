@@ -64,7 +64,7 @@ for i in range(0,totalItems, 100):
 
 keys = results_list[0].keys()
 
-with open('../spreadsheets/allcards0_LOCAL.csv', 'w', newline='') as output_file:
+with open('spreadsheets/allcards0_LOCAL.csv', 'w', newline='') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(results_list)

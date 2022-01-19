@@ -17,7 +17,7 @@ headers = {"Accept": "application/json", "Authorization": bearer}
 results_list = []
 
 csv_data = []
-with open('../spreadsheets/allcards0_LOCAL.csv') as csv_file:
+with open('spreadsheets/allcards0_LOCAL.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = -1
     for row in csv_reader:
@@ -51,7 +51,7 @@ for i in range(line_count):
 
 keys = results_list[0].keys()
 
-with open('../spreadsheets/allcardsskus_LOCAL.csv', 'w', newline='') as output_file:
+with open('spreadsheets/allcardsskus_LOCAL.csv', 'w', newline='') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(results_list)
