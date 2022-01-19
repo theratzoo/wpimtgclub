@@ -75,7 +75,7 @@ export default class Cart extends React.Component {
             }
             console.log("END CONSTRUCTION; BEGIN WRITING");
             const json = {"new_sheet": new_sheet}
-            fetch('/api/hello', {
+            fetch('/api/updatecatalog', {
                 method: 'POST',
                 body: JSON.stringify(json)
             }).then(result => {

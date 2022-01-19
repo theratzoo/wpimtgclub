@@ -1,5 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-// TODO: rename file!
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
   path: 'spreadsheets/mtg_card_catalog.csv',
@@ -29,12 +27,10 @@ const csvWriter = createCsvWriter({
 });
     
 export default async function handler (req, res) {
-  //console.log(req)
   if (req.method !== 'POST') {
     res.status(405).send({ message: 'Only POST requests allowed' });
     return;
   }
-  console.log(req.body);
   const body = JSON.parse(req.body);
   const data = body["new_sheet"];
   csvWriter
