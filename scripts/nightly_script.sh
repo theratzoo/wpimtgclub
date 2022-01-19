@@ -1,5 +1,6 @@
 #!/bin/bash
 
+git pull
 python3 scripts/updateprices.py
 git add spreadsheets/mtg_card_catalog.csv
 git commit -m "nightly price update"
