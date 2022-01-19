@@ -1,5 +1,12 @@
 ## List of TODOS for the website:
 
+WHAT TO DO BEFORE WE BRING THE SITE LIVE:
+- get rid of all logging client-side. either remove from code or comment out
+- make it look better via styling and basic QoL functionality
+- remove the useless features (calendar we can keep, but useless filters go away)
+- get pictures of the club members
+
+
 - Develop an online events calendar that will show casuals, upcoming drafts, and other events like Gaming Weekend
 - definitely somewhere to fill out a form for any ideas/suggestions/bugs/whatever
 - AUTOMATION via RaspberryPI for daily price updates
@@ -49,5 +56,8 @@ SearchMenuJS:
 
 -CalendarJS:
 - make it a nice calendar using a template? React/NextJS template??
+
+-packages:
+- remove any unused packages (do this toward the end of the list)
 
 My personal Google Keep has some notes on it as well!

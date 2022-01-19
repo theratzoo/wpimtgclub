@@ -5,17 +5,30 @@ import Button from 'react-bootstrap/Button'
 import emailjs from 'emailjs-com';
 import fixPrice from './functions/fixprice.js'
 import fixCondition from './functions/fixcondition.js'
-
-const wholeData = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv')
+const fs = require('fs');
+const wholeData = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv');
 export default class Cart extends React.Component {
 	constructor(props) {
 		super(props);
         this.state = {
             isConfirmDisabled: true,
-        }
+        }   
 	}
 
     sendEmail() {
+        const tempCart = this.props.cart + "";
+        const cart = tempCart.split(",");
+        // this first bit constructs an actual card, with the info we need!
+        const actualCart = []
+        const quantities = []
+        for(let i=0; i<cart.length; i++) {
+            if(cart[i] != '0') {
+                const quantity = cart[i];
+                const card = wholeData[i];
+                actualCart.push(card);
+                quantities.push(parseInt(quantity));
+            }
+        }
         const name = document.getElementById('buyerName').value;
         const email = document.getElementById('buyerEmail').value;
         let paymethod = "Paypal"; // default payment method is Paypal
@@ -38,7 +51,39 @@ export default class Cart extends React.Component {
         
         emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE, template_params, process.env.NEXT_PUBLIC_EMAIL_USER)
           .then((result) => {
-              window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+            // update CSV here
+            console.log("START CONSTRUCTION");
+            const new_sheet = []
+            for(let i=0; i<wholeData.length; i++) {
+                let foundIt = false;
+                for(let j=0; j<actualCart.length; j++) {
+                    //console.log(actualCart[j]["SKU"] + " VS " + wholeData[i]["SKU"])
+                    if(wholeData[i]["SKU"] == actualCart[j]["SKU"]) {
+                        console.log("FOUND CARD: " + wholeData[i])
+                        console.log("Q1: " + parseInt(wholeData[i]["Quantity"]) + " Q2: " + quantities[j])
+                        foundIt = true;
+                        if(parseInt(wholeData[i]["Quantity"]) != quantities[j]) {
+                            wholeData[i]["Quantity"] = parseInt(wholeData[i]["Quantity"]) - quantities[j];
+                            new_sheet.push(wholeData[i]);
+                        }
+                        break;
+                    }
+                }
+                if(!foundIt) {
+                    new_sheet.push(wholeData[i]);
+                }
+            }
+            console.log("END CONSTRUCTION; BEGIN WRITING");
+            const json = {"new_sheet": new_sheet}
+            fetch('/api/hello', {
+                method: 'POST',
+                body: JSON.stringify(json)
+            }).then(result => {
+                console.log("TEST") // TODO: error checking goes here
+            })
+            //TODO: uncomment two lines below:
+              //alert("Order has been confirmed!")
+              //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
           }, (error) => {
               console.log(error.text);
           });
@@ -57,6 +102,7 @@ export default class Cart extends React.Component {
     }
 	
 	render() {
+
         const tempCart = this.props.cart + "";
         const cart = tempCart.split(",");
         let total = 0;
@@ -71,7 +117,6 @@ export default class Cart extends React.Component {
         })
 
         total = Math.round(total*100) / 100;
-        const isCartEmpty = total == 0;
 		return (
 			<div>	
             <br/>
