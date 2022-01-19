@@ -5,8 +5,10 @@ WHAT TO DO BEFORE WE BRING THE SITE LIVE:
 - make it look better via styling and basic QoL functionality
 - remove the useless features (calendar we can keep, but useless filters go away)
 - get pictures of the club members
+- add a feature to write down old card sales. basically, have a spreadsheet to track old sales!
 
 
+Later features:
 - Develop an online events calendar that will show casuals, upcoming drafts, and other events like Gaming Weekend
 - definitely somewhere to fill out a form for any ideas/suggestions/bugs/whatever
 - AUTOMATION via RaspberryPI for daily price updates
@@ -59,5 +61,10 @@ SearchMenuJS:
 
 -packages:
 - remove any unused packages (do this toward the end of the list)
+
+-misc:
+- fix api (rename, etc.)
+- load the cards via api call rather than within react (a bit cleaner code-wise)
+- add way to decide wheter u want card shipped or not. if u say pickup, then we say u pickup during club meeting. if u say ship, u just get it shipped to ur address. for the latter u would also need to pay shipping, which ill just say is $5 for the sake of its impossible to calculate costs (well $5 for tracked or $1 for untracked).
 
 My personal Google Keep has some notes on it as well!
