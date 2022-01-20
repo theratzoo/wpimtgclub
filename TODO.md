@@ -1,7 +1,6 @@
 ## List of TODOS for the website:
 
 WHAT TO DO BEFORE WE BRING THE SITE LIVE:
-- get rid of all logging client-side. either remove from code or comment out
 - make it look better via styling and basic QoL functionality
 - remove the useless features (calendar we can keep, but useless filters go away)
 - get pictures of the club members

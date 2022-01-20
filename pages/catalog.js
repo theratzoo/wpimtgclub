@@ -190,15 +190,14 @@ export default class Catalog extends React.Component {
 	render() {
 		const handleToUpdate = this.handleToUpdate
 		const isCardAllowed = this.isCardAllowed
-		console.log("RENDERING")
+		//console.log("RENDERING")
 		const data = this.state.data.filter(isCardAllowed.bind(this))
-		console.log(this.state.markCartItems)
+		//console.log(this.state.markCartItems)
 		const displayData = [];
 		for(let i=20*(this.state.pageNumber-1); i<20*this.state.pageNumber && i<data.length; i++) {
 			displayData.push(data[i]);
 		}
-		const maxPages = Math.round(data.length/20) + 1; // TODO: confirm this is correct, could b wrong (do easy test)
-
+		const maxPages = Math.floor(data.length/20) + 1;
 
 		return (
 			<div>

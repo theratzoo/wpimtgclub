@@ -52,15 +52,11 @@ export default class Cart extends React.Component {
         emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE, template_params, process.env.NEXT_PUBLIC_EMAIL_USER)
           .then((result) => {
             // update CSV here
-            console.log("START CONSTRUCTION");
-            const new_sheet = []
+            const new_sheet = [];
             for(let i=0; i<wholeData.length; i++) {
                 let foundIt = false;
                 for(let j=0; j<actualCart.length; j++) {
-                    //console.log(actualCart[j]["SKU"] + " VS " + wholeData[i]["SKU"])
                     if(wholeData[i]["SKU"] == actualCart[j]["SKU"]) {
-                        console.log("FOUND CARD: " + wholeData[i])
-                        console.log("Q1: " + parseInt(wholeData[i]["Quantity"]) + " Q2: " + quantities[j])
                         foundIt = true;
                         if(parseInt(wholeData[i]["Quantity"]) != quantities[j]) {
                             wholeData[i]["Quantity"] = parseInt(wholeData[i]["Quantity"]) - quantities[j];
@@ -73,17 +69,15 @@ export default class Cart extends React.Component {
                     new_sheet.push(wholeData[i]);
                 }
             }
-            console.log("END CONSTRUCTION; BEGIN WRITING");
             const json = {"new_sheet": new_sheet}
             fetch('/api/updatecatalog', {
                 method: 'POST',
                 body: JSON.stringify(json)
             }).then(result => {
-                console.log("TEST") // TODO: error checking goes here
+                console.log("Looks good!") // TODO: error checking goes here
             })
-            //TODO: uncomment two lines below:
-              //alert("Order has been confirmed!")
-              //window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+              alert("Order has been confirmed!")
+              window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
           }, (error) => {
               console.log(error.text);
           });
@@ -102,19 +96,17 @@ export default class Cart extends React.Component {
     }
 	
 	render() {
-
         const tempCart = this.props.cart + "";
         const cart = tempCart.split(",");
         let total = 0;
         let data = wholeData;
-        console.log(cart);
         data = data.filter((card) => {
             if(cart[card['WPI Id']] != '0') {
                 total += card['Price'] * parseInt(cart[card['WPI Id']])
                 return true;
             }
             return false;
-        })
+        });
 
         total = Math.round(total*100) / 100;
 		return (
