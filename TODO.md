@@ -1,13 +1,12 @@
 ## List of TODOS for the website:
 
 WHAT TO DO BEFORE WE BRING THE SITE LIVE:
-- make it look better via styling and basic QoL functionality
-- remove the useless features (calendar we can keep, but useless filters go away)
 - get pictures of the club members
 - add a feature to write down old card sales. basically, have a spreadsheet to track old sales!
 
 
 Later features:
+- BIG styling update: look for feedback from a few select individuals (I would start with Chris, asking how he recommends we improve styling and then go from there). This is a huge WIP that we can't really start until, IMO, either Spring break, or Summer break.
 - Develop an online events calendar that will show casuals, upcoming drafts, and other events like Gaming Weekend
 - definitely somewhere to fill out a form for any ideas/suggestions/bugs/whatever
 - AUTOMATION via RaspberryPI for daily price updates

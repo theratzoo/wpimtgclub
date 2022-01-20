@@ -89,11 +89,22 @@ export default class Catalog extends React.Component {
 					if(!foundIt) return false;
 					break;
 				case "colorsFilter":
+					let foundIt1 = true;
+					for(const x in value) {
+						if(card['Mana Cost'].includes(value[x]['label'][0])) {
+							foundIt1 = true;
+							break;
+						} else {
+							foundIt1 = false;
+						}
+					}
+					if(!foundIt1) return false;
 					break;
 				case "formatLegalitiesFilter":
 					let foundIt2 = true;
 					for(const x in value) {
-						if(card['Legalities'].includes(value[x]['label'].toLowerCase())) {
+						const json = card['Legalities'].replaceAll("'", "\"");
+						if(JSON.parse(json)[value[x]['label'].toLowerCase()] == 'legal') {
 							foundIt2 = true;
 							break;
 						} else {
@@ -102,7 +113,7 @@ export default class Catalog extends React.Component {
 					}
 					if(!foundIt2) return false;
 					break;
-				case "setsFilter":
+				case "setsFilter": // TODO: code this!
 					let foundIt3 = true;
 					for(const x in value) {
 						if(card['Set'].includes(value[x]['label'])) {

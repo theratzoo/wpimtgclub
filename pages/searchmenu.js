@@ -71,7 +71,7 @@ export default class SearchMenu extends React.Component {
         const oracleTextFilter = document.getElementById('oracleText').value
         const cmcFilter = document.getElementById('cmc').value
         //const exactManaCost = document.getElementById('exactManaCost').value // idk how to format this yet
-        handleToUpdate(nameFilter, oracleTextFilter, this.state.cmcType, cmcFilter, this.state.types, this.state.colors,this.state.formatLegalities, this.state.sets, this.state.rarity)
+        handleToUpdate(nameFilter, oracleTextFilter, this.state.cmcType, cmcFilter, this.state.types, this.state.colors, this.state.formatLegalities, this.state.sets, this.state.rarity)
     }
     
     handleChangeCmcType = (cmcType) => {
@@ -128,9 +128,7 @@ export default class SearchMenu extends React.Component {
             <div>
                 <h4>Format Legalities&nbsp;&nbsp;<div style={{display: "inline-block"}}><Select value={this.state.formatLegalities} style="display:inline" options={formats} onChange={this.handleChangeFormatLegalities} isMulti /></div></h4>
             </div>
-            <div>
-                <h4>Sets&nbsp;&nbsp;<div style={{display: "inline-block"}}><Select value={this.state.sets} style="display:inline" options={sets} onChange={this.handleChangeSets} isMulti /></div></h4>
-            </div>
+            
             <div>
                 <h4>Rarity&nbsp;&nbsp;<div style={{display: "inline-block"}}><Select value={this.state.rarity} style="display:inline" options={rarity} onChange={this.handleChangeRaritiy} /></div></h4>
             </div>
@@ -140,3 +138,7 @@ export default class SearchMenu extends React.Component {
 
 
 }
+
+/*<div>
+                <h4>Sets&nbsp;&nbsp;<div style={{display: "inline-block"}}><Select value={this.state.sets} style="display:inline" options={sets} onChange={this.handleChangeSets} isMulti /></div></h4>
+            </div>*/
