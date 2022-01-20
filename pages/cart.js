@@ -174,7 +174,7 @@ export default class Cart extends React.Component {
             <br/>
             <br/>
             <p>Notice: once you click &quot;confirm checkout&quot;, you have one week to pay for the cards, or else you will have to re-order at the new prices. Prices will NOT change during the one-week reserve period. You MUST also hit the confirmation link in your email that you receive, or else the cards will not be reserved (this is to prevent botting).</p>
-            <h4><Button class="btn btn-primary" disabled={this.state.isConfirmDisabled} id='reserve' onClick={() => this.sendEmail()}>Confirm Checkout (Reserve Cards)</Button></h4>
+            <h4><Button class="btn btn-success" disabled={this.state.isConfirmDisabled} id='reserve' onClick={() => this.sendEmail()}>Confirm Checkout (Reserve Cards)</Button></h4>
         </div>
 		)
 	}

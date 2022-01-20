@@ -134,7 +134,7 @@ export default class SearchMenu extends React.Component {
             <div>
                 <h4>Rarity&nbsp;&nbsp;<div style={{display: "inline-block"}}><Select value={this.state.rarity} style="display:inline" options={rarity} onChange={this.handleChangeRaritiy} /></div></h4>
             </div>
-            <Button className="btn btn-primary" onClick={()=>this.applyFilters()}>Apply Filters</Button>
+            <Button className="btn btn-success" onClick={()=>this.applyFilters()}>Apply Filters</Button>
         </div>)
     }
 

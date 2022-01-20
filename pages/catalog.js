@@ -32,13 +32,16 @@ export default class Catalog extends React.Component {
 			displayCart:false,
 			pageNumber:1,
 			maxPages:0,
+			isNextDisabled:false,
+			isPrevDisabled:true,
 		}
 		const handleToUpdate = this.handleToUpdate.bind(this);
 	}
 
 	handleToUpdate(nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter) {
 		this.setState({
-			filters:{nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter}
+			filters:{nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter},
+			displaySearchMenu: false  // hide menu
 		});
 	}
 
@@ -168,23 +171,22 @@ export default class Catalog extends React.Component {
 	}
 
 	nextPg(max) {
-		if(this.state.pageNumber+1==max) {
-			return;
-		} else {
-			this.setState({
-				pageNumber: this.state.pageNumber+1
-			})
-		}
+		const newPgNumber = this.state.pageNumber + 1;
+		this.setState({
+			pageNumber: newPgNumber,
+			isNextDisabled: newPgNumber>=max,
+			isPrevDisabled: newPgNumber<2
+		})
+		
 	}
 
-	prevPg() {
-		if(this.state.pageNumber-1==0) {
-			return;
-		} else {
-			this.setState({
-				pageNumber: this.state.pageNumber-1
-			})
-		}
+	prevPg(max) {
+		const newPgNumber = this.state.pageNumber - 1;
+		this.setState({
+			pageNumber: newPgNumber,
+			isNextDisabled: newPgNumber>=max,
+			isPrevDisabled: newPgNumber<2
+		})
 	}
 
 	render() {
@@ -215,14 +217,14 @@ export default class Catalog extends React.Component {
 					<MyNavbar/>
 					<div className="container">
 						<div className="jumbotron">
-							<h1>Catalog- Work in Progress! <span><Button onClick={() => this.setState({displayCart: (!this.state.displayCart && this.state.cartTotalCount > 0)})}>{"Cart: " + this.state.cartTotalCount}</Button></span></h1>
+							<h1>Catalog- Work in Progress! <span><Button className="btn btn-primary" onClick={() => this.setState({displayCart: (!this.state.displayCart && this.state.cartTotalCount > 0)})}>{"Cart: " + this.state.cartTotalCount}</Button></span></h1>
 						</div>
 						<br/>
 						<div style={{display: this.state.displayCart ? 'block' : 'none' }}>
 							<Cart cart={this.state.currentCartItems}/>
 						</div>
 						<br/>	
-						<Button className="btn btn-primary" onClick={() => this.setState({displaySearchMenu: !this.state.displaySearchMenu})}>Advanced Search/Filter</Button>
+						<Button className="btn btn-danger" onClick={() => this.setState({displaySearchMenu: !this.state.displaySearchMenu})}>Advanced Search/Filter</Button>
 						<br/>
 						<div style={{display: this.state.displaySearchMenu ? 'block' : 'none' }}>
 							<SearchMenu handleToUpdate={handleToUpdate.bind(this)}/>
@@ -260,7 +262,7 @@ export default class Catalog extends React.Component {
 							</tbody>
 						</table>
 						<br/>
-						<Button className="btn btn-primary" onClick={() => this.prevPg()}>Prev</Button><Button className="btn btn-primary" onClick={() => this.nextPg(maxPages)}>Next</Button>
+						<Button className="btn btn-dark" onClick={() => this.prevPg(maxPages)}  disabled={this.state.isPrevDisabled}>Prev</Button><Button className="btn btn-dark" onClick={() => this.nextPg(maxPages)} disabled={this.state.isNextDisabled}>Next</Button>
 						<h5>{"Page " + this.state.pageNumber + " of " + maxPages}</h5>
 						<br/>
 						<br/>
