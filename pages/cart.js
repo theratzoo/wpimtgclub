@@ -41,46 +41,88 @@ export default class Cart extends React.Component {
         const date = year + "/" + month + "/" + day;
         const order = document.getElementById('cartTable').innerHTML + "<br>" + document.getElementById('total').innerText;
         
-        const template_params = {
-            name: name, // ask for name!
-            date: date, // that is all we need, no necessity for time
-            order: order, // this will be giant text blob of order that we construct in this function
-            paymethod: paymethod,// this is found out by seeing which one is checked. if none, we default to Paypal.
-            sender_email: email,
-        };
-        
-        emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE, template_params, process.env.NEXT_PUBLIC_EMAIL_USER)
-          .then((result) => {
-            // update CSV here
-            const new_sheet = [];
-            for(let i=0; i<wholeData.length; i++) {
-                let foundIt = false;
-                for(let j=0; j<actualCart.length; j++) {
-                    if(wholeData[i]["SKU"] == actualCart[j]["SKU"]) {
-                        foundIt = true;
-                        if(parseInt(wholeData[i]["Quantity"]) != quantities[j]) {
-                            wholeData[i]["Quantity"] = parseInt(wholeData[i]["Quantity"]) - quantities[j];
-                            new_sheet.push(wholeData[i]);
-                        }
-                        break;
-                    }
-                }
-                if(!foundIt) {
-                    new_sheet.push(wholeData[i]);
-                }
+        // here is where I write order entry:
+        // TODO: can move this into a helper function so this one function isnt gigantic. can do this for other parts of the code in this project in general!
+        const cardData = wholeData.filter((card) => {
+            if(cart[card['WPI Id']] != '0') {
+                return true;
             }
-            const json = {"new_sheet": new_sheet}
-            fetch('/api/updatecatalog', {
+            return false;
+        });
+        for(let i=0; i<cardData.length; i++) {
+            delete cardData[i]["Product Id"];
+            delete cardData[i]["Mana Cost"];
+            delete cardData[i]["CMC"];
+            delete cardData[i]["Main Type"];
+            delete cardData[i]["Sub Types"];
+            delete cardData[i]["Is Legendary"];
+            delete cardData[i]["Oracle Text"];
+            delete cardData[i]["Legalities"];
+            delete cardData[i]["Reserved List"];
+            delete cardData[i]["Keywords"];
+            delete cardData[i]["Rarity"];
+            delete cardData[i]["Optionals"];
+            cardData[i]["Quantity"] = quantities[i]; // should work!
+        }
+
+        fetch('/api/fetchordernumber', {
+            method: 'GET'
+        }).then(result => result.text())
+        .then(data =>
+            { // TODO: error check and better format this .-.
+            data = JSON.parse(data);
+            const orderNumber = data["order_number"];
+            const orderbookEntry = {"order_number": orderNumber, "date": date, "total_price": document.getElementById("total").innerText.substring(document.getElementById("total").innerText.indexOf("$")), "order": cardData};
+            fetch('/api/updateorderbook', {
                 method: 'POST',
-                body: JSON.stringify(json)
+                body: JSON.stringify(orderbookEntry)
             }).then(result => {
                 console.log("Looks good!") // TODO: error checking goes here
+                const template_params = {
+                    name: name, // ask for name!
+                    date: date, // that is all we need, no necessity for time
+                    order: order, // this will be giant text blob of order that we construct in this function
+                    paymethod: paymethod,// this is found out by seeing which one is checked. if none, we default to Paypal.
+                    sender_email: email,
+                    order_number: orderNumber,
+                };
+                emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE, template_params, process.env.NEXT_PUBLIC_EMAIL_USER)
+                .then((result) => {
+                    // update CSV here
+                    const new_sheet = [];
+                    for(let i=0; i<wholeData.length; i++) {
+                        let foundIt = false;
+                        for(let j=0; j<actualCart.length; j++) {
+                            if(wholeData[i]["SKU"] == actualCart[j]["SKU"]) {
+                                foundIt = true;
+                                if(parseInt(wholeData[i]["Quantity"]) != quantities[j]) {
+                                    wholeData[i]["Quantity"] = parseInt(wholeData[i]["Quantity"]) - quantities[j];
+                                    new_sheet.push(wholeData[i]);
+                                }
+                                break;
+                            }
+                        }
+                        if(!foundIt) {
+                            new_sheet.push(wholeData[i]);
+                        }
+                    }
+                    const json = {"new_sheet": new_sheet}
+                    fetch('/api/updatecatalog', {
+                        method: 'POST',
+                        body: JSON.stringify(json)
+                    }).then(result => {
+                        console.log("Looks good!") // TODO: error checking goes here
+                    })
+                    alert("Order has been confirmed!")
+                    window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
+                }, (error) => {
+                    console.log(error.text);
+                });
+          
             })
-              alert("Order has been confirmed!")
-              window.location.reload()  //This is if you still want the page to reload (since e.preventDefault() cancelled that behavior) 
-          }, (error) => {
-              console.log(error.text);
-          });
+        })
+
+        
       }
 
     // returns whether button is disabled (true) or not disabled (false)
