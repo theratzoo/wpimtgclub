@@ -2,8 +2,8 @@
 
 WHAT TO DO BEFORE WE BRING THE SITE LIVE:
 - get pictures of the club members
-- add a feature to write down old card sales. basically, have a spreadsheet to track old sales!
-
+- figure out way to deal w/ cards being removed... aka resetting WPI Ids as that is the only messed-up thing. can simply do the reset via the updateprice.py script...
+- auto pricing seems to not be working (job isnt running or we are running into issues).
 
 Later features:
 - BIG styling update: look for feedback from a few select individuals (I would start with Chris, asking how he recommends we improve styling and then go from there). This is a huge WIP that we can't really start until, IMO, either Spring break, or Summer break.
