@@ -1,7 +1,8 @@
 #!/bin/bash
-
-git pull
+GIT='git --git-dir='$PWD'/.git'
+$GIT status
+$GIT pull
 python3 scripts/updateprices.py
-git add spreadsheets/mtg_card_catalog.csv
-git commit -m "nightly price update"
-git push
+$GIT add spreadsheets/mtg_card_catalog.csv
+$GIT commit -m "nightly price update"
+$GIT push
