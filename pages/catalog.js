@@ -228,9 +228,10 @@ export default class Catalog extends React.Component {
 					<MyNavbar/>
 					<div className="container">
 						<div className="jumbotron">
-							<h1>Catalog- Work in Progress! <span><Button className="btn btn-primary" onClick={() => this.setState({displayCart: (!this.state.displayCart && this.state.cartTotalCount > 0)})}>{"Cart: " + this.state.cartTotalCount}</Button></span></h1>
+							<h1>Catalog- Work in Progress! </h1>
 						</div>
 						<br/>
+						<p>To order a card, message one of the officers on Discord. We are able to ship, you will just have to pay for the shipping (about 78 cents w/o tracking and $5 with tracking).</p>
 						<div style={{display: this.state.displayCart ? 'block' : 'none' }}>
 							<Cart cart={this.state.currentCartItems}/>
 						</div>
@@ -266,8 +267,7 @@ export default class Catalog extends React.Component {
 									<td className="cardInfo">{fixCondition(card["Condition"])}</td>
 									<td className="cardInfo">{card["Foil"]}</td>
 									<td className="cardInfo">{"$" + fixPrice(card["Price"])}</td>
-									<td className="cardInfo"><Select value={this.state.markCartItems[card["WPI Id"]]} options={this.getItems(card["Quantity"])} onChange={(val) => this.iDontCare(val, card["WPI Id"])} /></td>
-									<td className="cardInfo"><a href="javascript:void(0)"><img src="/images/addtocart.png" alt="Add to Cart" className="cartImg" onClick={() => this.addToCart(card)}></img></a></td>
+									
 								</tr>
 								)}
 							</tbody>
@@ -282,5 +282,9 @@ export default class Catalog extends React.Component {
 			</div>
 		)
 	}
-	
 }
+
+//<span><Button className="btn btn-primary" onClick={() => this.setState({displayCart: (!this.state.displayCart && this.state.cartTotalCount > 0)})}>{"Cart: " + this.state.cartTotalCount}</Button></span>
+
+//<td className="cardInfo"><Select value={this.state.markCartItems[card["WPI Id"]]} options={this.getItems(card["Quantity"])} onChange={(val) => this.iDontCare(val, card["WPI Id"])} /></td>
+//<td className="cardInfo"><a href="javascript:void(0)"><img src="/images/addtocart.png" alt="Add to Cart" className="cartImg" onClick={() => this.addToCart(card)}></img></a></td>
