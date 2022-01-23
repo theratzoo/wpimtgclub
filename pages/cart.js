@@ -2,7 +2,7 @@ import CardHoverImage from './cardhoverimage.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react'
 import Button from 'react-bootstrap/Button'
-import emailjs from 'emailjs-com';
+const emailjs = require('emailjs-com');
 import fixPrice from './functions/fixprice.js'
 import fixCondition from './functions/fixcondition.js'
 const fs = require('fs');
