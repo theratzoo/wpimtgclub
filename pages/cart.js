@@ -86,6 +86,9 @@ export default class Cart extends React.Component {
                     sender_email: email,
                     order_number: orderNumber,
                 };
+                console.log(process.env.NEXT_PUBLIC_EMAIL_SERVICE)
+                console.log(process.env.NEXT_PUBLIC_EMAIL_TEMPLATE)
+                console.log(process.env.NEXT_PUBLIC_EMAIL_USER)
                 emailjs.send(process.env.NEXT_PUBLIC_EMAIL_SERVICE, process.env.NEXT_PUBLIC_EMAIL_TEMPLATE, template_params, process.env.NEXT_PUBLIC_EMAIL_USER)
                 .then((result) => {
                     // update CSV here
