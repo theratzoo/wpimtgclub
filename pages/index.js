@@ -47,7 +47,7 @@ export default function Home() {
               <div className="col-sm-4">
               <Card>
                 <Card.Title>{"President"}</Card.Title>
-                <Card.Img variant="top" src="images/luke" alt="picture of luke"/>
+                <Card.Img variant="top" src="images/luke.jpg" alt="picture of luke"/>
                 <Card.Body>
                   <Card.Text>
                     {"Luke Deratzou"}
