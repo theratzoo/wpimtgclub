@@ -1,9 +1,7 @@
 ## List of TODOS for the website:
 
 WHAT TO DO BEFORE WE BRING THE SITE LIVE:
-- get pictures of the club members
-- figure out way to deal w/ cards being removed... aka resetting WPI Ids as that is the only messed-up thing. can simply do the reset via the updateprice.py script...
-- auto pricing seems to not be working (job isnt running or we are running into issues).
+- Fix the site so that we don't have any writing going on. As much as I want there to be writing, the goal should be to deploy a working product even if it is all manual. Automatic writing will come with time but the mongoDB stuff will probably take too long to learn .-.
 
 Later features:
 - BIG styling update: look for feedback from a few select individuals (I would start with Chris, asking how he recommends we improve styling and then go from there). This is a huge WIP that we can't really start until, IMO, either Spring break, or Summer break.
@@ -11,6 +9,7 @@ Later features:
 - definitely somewhere to fill out a form for any ideas/suggestions/bugs/whatever
 - AUTOMATION via RaspberryPI for daily price updates
 - get a domain name (after website is established, aka critical features are done and styling is in a complete stage)
+- solve the cheaper better condition problem: basically, if card is MP but there is a cheaper NM/LP option on TCGPlayer, we should use that as our price. The implementation for this is via having sub-SKUs (from card's condition to highest possible condition), but this feature isn't a huge priority.
 
 All Scripts:
 - add documentation
