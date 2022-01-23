@@ -252,8 +252,6 @@ export default class Catalog extends React.Component {
 									<th className="cardInfo">Condition</th>
 									<th className="cardInfo">Foil</th>
 									<th className="cardInfo">Price</th>
-									<th className="cardInfo">Quantity to Add</th>
-									<th className="cardInfo">Add to Cart</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -288,3 +286,6 @@ export default class Catalog extends React.Component {
 
 //<td className="cardInfo"><Select value={this.state.markCartItems[card["WPI Id"]]} options={this.getItems(card["Quantity"])} onChange={(val) => this.iDontCare(val, card["WPI Id"])} /></td>
 //<td className="cardInfo"><a href="javascript:void(0)"><img src="/images/addtocart.png" alt="Add to Cart" className="cartImg" onClick={() => this.addToCart(card)}></img></a></td>
+
+//<th className="cardInfo">Quantity to Add</th>
+//<th className="cardInfo">Add to Cart</th>
