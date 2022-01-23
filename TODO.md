@@ -1,7 +1,10 @@
 ## List of TODOS for the website:
 
-WHAT TO DO BEFORE WE BRING THE SITE LIVE:
-- Fix the site so that we don't have any writing going on. As much as I want there to be writing, the goal should be to deploy a working product even if it is all manual. Automatic writing will come with time but the mongoDB stuff will probably take too long to learn .-.
+As soon as possible:
+- get mongoDB setup for:
+- - card catalog
+- - next order number
+- - past order history
 
 Later features:
 - BIG styling update: look for feedback from a few select individuals (I would start with Chris, asking how he recommends we improve styling and then go from there). This is a huge WIP that we can't really start until, IMO, either Spring break, or Summer break.
@@ -63,5 +66,8 @@ SearchMenuJS:
 - fix api (rename, etc.)
 - load the cards via api call rather than within react (a bit cleaner code-wise)
 - add way to decide wheter u want card shipped or not. if u say pickup, then we say u pickup during club meeting. if u say ship, u just get it shipped to ur address. for the latter u would also need to pay shipping, which ill just say is $5 for the sake of its impossible to calculate costs (well $5 for tracked or $1 for untracked).
+- sort by border (silver border?)
+- indicate how we calculate prices on the website
+- filter based on price (x or less)
 
 My personal Google Keep has some notes on it as well!

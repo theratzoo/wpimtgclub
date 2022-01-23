@@ -31,10 +31,11 @@ export default async function handler (req, res) {
     res.status(405).send({ message: 'Only POST requests allowed' });
     return;
   }
+  return res.status(200).send("Success");
   const body = JSON.parse(req.body);
   const data = body["new_sheet"];
   csvWriter
   .writeRecords(data)
   .then(()=> console.log('The CSV file was written successfully'));
-  return res.status(200).send("Success");
+  
 }
