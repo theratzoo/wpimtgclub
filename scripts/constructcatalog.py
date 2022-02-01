@@ -11,7 +11,7 @@ results_list = []
 headers = {"Accept": "application/json"}
 skus_found = 0 # for debugging purposes...
 csv_data = []
-with open('spreadsheets/mtg_card_catalog.csv') as csv_file:
+with open('spreadsheets/mtg_card_catalog_google.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = -1
     for row in csv_reader:
@@ -20,7 +20,7 @@ with open('spreadsheets/mtg_card_catalog.csv') as csv_file:
             csv_data.append(row)
 
 csv_data_skus = []
-with open('../spreadsheets/allcardsskus_LOCAL.csv') as csv_file:
+with open('spreadsheets/allcardsskus_LOCAL.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count_2 = -1
     for row in csv_reader:
@@ -46,14 +46,17 @@ def lang_to_num(s):
 def calculateSKU(card_name, set_name, condition_number, foil_number, language_number):
     print("info: ", card_name, set_name, condition_number, foil_number, language_number)
     exception = "NULL"
+    count = 0
     if set_name == "time-spiral":
         exception = "timeshifted"
-    global skus_found
+    skus = [None] * condition_number
     for i in range(line_count_2):
-        if csv_data_skus[i][1] == card_name and (csv_data_skus[i][2] == set_name or csv_data_skus[i][2] == exception) and csv_data_skus[i][4] == str(language_number) and csv_data_skus[i][5] == str(foil_number) and csv_data_skus[i][6] == str(condition_number):
-            skus_found+=1
-            return csv_data_skus[i][0], csv_data_skus[i][3]
-    print("FATAL ERROR: SKU NOT FOUND", skus_found) 
+        if csv_data_skus[i][1] == card_name and (csv_data_skus[i][2] == set_name or csv_data_skus[i][2] == exception) and csv_data_skus[i][4] == str(language_number) and csv_data_skus[i][5] == str(foil_number) and csv_data_skus[i][6] <= str(condition_number):
+            skus[int(csv_data_skus[i][6])-1] = csv_data_skus[i][0]
+            count += 1
+            if count == condition_number:
+                return skus, csv_data_skus[i][3]
+    print("FATAL ERROR: SKU NOT FOUND") 
 
 def get_main_types(tl):
     types = ["Creature", "Artifact", "Enchantment", "Land", "Planeswalker", "Instant", "Sorcery"]
@@ -72,9 +75,9 @@ def trim_main_types(tl):
 
 count = 0
 for i in range(line_count):
-    if len(csv_data[i]) >= 20: # current length of a row excluding price
+    if len(csv_data[i]) >= 22: # current length of a row
         print("no need to update!")
-        item = {"WPI Id": count, "Card Name": csv_data[i][1], "Quantity": csv_data[i][2], "Set": csv_data[i][3], "Condition": csv_data[i][4], "Foil": csv_data[i][5], "Language": csv_data[i][6], "SKU": csv_data[i][7], "Product Id": csv_data[i][8], "Mana Cost": csv_data[i][9], "CMC": csv_data[i][10], "Main Type": csv_data[i][11], "Sub Types": csv_data[i][12], "Is Legendary": csv_data[i][13], "Oracle Text": csv_data[i][14], "Legalities": csv_data[i][15], "Reserved List": csv_data[i][16], "Keywords": csv_data[i][17], "Rarity": csv_data[i][18], "Optionals": csv_data[i][19], "Price": csv_data[i][20]} 
+        item = {"WPI Id": count, "Card Name": csv_data[i][1], "Quantity": csv_data[i][2], "Set": csv_data[i][3], "Condition": csv_data[i][4], "Foil": csv_data[i][5], "Language": csv_data[i][6], "SKU": csv_data[i][7], "Product Id": csv_data[i][8], "Mana Cost": csv_data[i][9], "CMC": csv_data[i][10], "Main Type": csv_data[i][11], "Sub Types": csv_data[i][12], "Is Legendary": csv_data[i][13], "Oracle Text": csv_data[i][14], "Legalities": csv_data[i][15], "Reserved List": csv_data[i][16], "Keywords": csv_data[i][17], "Rarity": csv_data[i][18], "Optionals": csv_data[i][19], "List of SKUs": csv_data[i][20], "Price": csv_data[i][21]} 
         results_list.append(item)
         count += 1
         continue
@@ -85,11 +88,11 @@ for i in range(line_count):
     condition_number = condition_to_num(csv_data[i][3])
     foil_number = foil_to_num(csv_data[i][4])
     language_number = lang_to_num(csv_data[i][5])
-    sku = ""
+    skus = []
     productId = ""
     
-    sku, productId = calculateSKU(card_name, set_name, condition_number, foil_number, language_number)
-
+    skus, productId = calculateSKU(card_name, set_name, condition_number, foil_number, language_number)
+    sku = skus[condition_number-1]
     # Scryfall stuff:
     reformatted_name = card_name.replace(' ', '+')
     url = "https://api.scryfall.com/cards/named?exact=" + reformatted_name + "&set=" + csv_data[i][2]
@@ -122,7 +125,7 @@ for i in range(line_count):
         optionals = {"loyalty": formatted_res["loyalty"]}
         pass
     
-    item = {"WPI Id": count, "Card Name": csv_data[i][0], "Quantity": csv_data[i][1], "Set": csv_data[i][2], "Condition": csv_data[i][3], "Foil": csv_data[i][4], "Language": csv_data[i][5], "SKU": sku, "Product Id": productId, "Mana Cost": mana_cost, "CMC": cmc, "Main Type": main_type, "Sub Types": sub_types, "Is Legendary": is_legendary, "Oracle Text": oracle_text, "Legalities": legalities, "Reserved List": reserved_list, "Keywords": keywords, "Rarity": rarity, "Optionals": optionals, "Price": 0} 
+    item = {"WPI Id": count, "Card Name": csv_data[i][0], "Quantity": csv_data[i][1], "Set": csv_data[i][2], "Condition": csv_data[i][3], "Foil": csv_data[i][4], "Language": csv_data[i][5], "SKU": sku, "Product Id": productId, "Mana Cost": mana_cost, "CMC": cmc, "Main Type": main_type, "Sub Types": sub_types, "Is Legendary": is_legendary, "Oracle Text": oracle_text, "Legalities": legalities, "Reserved List": reserved_list, "Keywords": keywords, "Rarity": rarity, "Optionals": optionals, "List of SKUs": skus, "Price": 0} 
     results_list.append(item)
     count += 1
 
@@ -131,7 +134,7 @@ for i in range(line_count):
 
 keys = results_list[0].keys()
 
-with open('spreadsheets/mtg_card_catalog_TMP.csv', 'w', newline='') as output_file:
+with open('spreadsheets/mtg_card_catalog.csv', 'w', newline='') as output_file:
     dict_writer = csv.DictWriter(output_file, keys)
     dict_writer.writeheader()
     dict_writer.writerows(results_list)
