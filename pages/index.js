@@ -22,65 +22,60 @@ export default function Home() {
       <main>
         <MyNavbar/>
         <div className="container">
-          <div className="jumbotron" style={{paddingTop: "40px"}}>
-            <div className="row">
-              <div className="col-sm-6">
-              <h1>WPI MTG Club</h1>
-              </div>
-              <div className="col-sm-6">
-              <Image src="/images/favicon.ico" width="100%" height="100%" alt="wpi mtg club logo"/> 
-              </div>
-              </div>
-            
-            </div>
+          <div className="text-center"><img src="/images/mtgbanner.jpeg" alt="mtg banner" className="img-responsive"/></div>
+          <br></br>            
+            <p name="about_us">WPI MTG club is a student club where students play Magic: the Gathering with each other. The club meets twice a week for casual play in a variety of formats, along with hosting occassional tournaments like paid drafts. Meetings are open to anyone: 7pm at the Campus Center first floor on Wednesdays and Saturdays.</p>
             <br/>
-            <p name="about_us">WPI MTG club is a student club where students play Magic: the Gathering with each other. The club meets twice a week for casual play in a variety of formats, along with hosting tournaments like paid drafts.</p>
-            <p>On this website, you can view the Events Calendar to see upcoming events, and also the Card Catalog, which lists cards that the club owns for sale.</p>
+            <hr/>            
+            <h2>Upcoming Events</h2>
+            <div className="row">
+              <div className="col-sm-4">
+              <Card>
+                <Card.Title>Wednesday Casuals</Card.Title>
+                <Card.Img variant="top" src="images/casuals.png" alt="casuals"/>
+                <Card.Body>
+                  <Card.Text>
+                    Wednesdays, 7pm at Campus Center.<br/>
+                    Bring your cards and play Magic with your fellow peers.<br/>
+                    Special tournaments (drafts, constructed, etc.) announced on Discord<br/>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              </div>
+              <div className="col-sm-4">
+              <Card>
+                <Card.Title>Saturday Casuals</Card.Title>
+                <Card.Img variant="top" src="images/casuals.png" alt="casuals"/>
+                <Card.Body>
+                  <Card.Text>
+                    Saturdays, 7pm at Campus Center.<br/>
+                    Bring your cards and play Magic with your fellow peers.<br/>
+                    Special tournaments (drafts, constructed, etc.) announced on Discord<br/>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              </div>
+              <div className="col-sm-4">
+              <Card>
+                <Card.Title>Gaming Weekend: April 29-30</Card.Title>
+                <Card.Img variant="top" src="images/newcapenna.jpeg" alt="gaming weekend"/>
+                <Card.Body>
+                  <Card.Text>
+                    Unity Hall, fourth floor.<br/>
+                    Friday at 7pm: New Capenna Draft<br/>
+                    Saturday at 1pm: Modern Tournament<br/>
+                    <br/>
+                    <br/>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              </div>
+            </div>
+
             <hr/>
-            <h2>Discord Link</h2>
-            <p>Join below for announcements on events, chats to discuss everything magic with your classmates, and more!</p>
+            <h2>Connect with the Club</h2>
+            <p>Join below to keep up with the latest club news, be alerted for events, and discuss all things Magic with your classmates.</p>
             <Link href="https://discord.gg/8ccfGKc">Discord Invite Link</Link>
-            <br/>
-            <hr/>
-            <h2>Club Officers</h2>
-            <div className="row">
-              <div className="col-sm-4">
-              <Card>
-                <Card.Title>{"President"}</Card.Title>
-                <Card.Img variant="top" src="images/luke.jpg" alt="picture of luke"/>
-                <Card.Body>
-                  <Card.Text>
-                    {"Luke Deratzou"}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              </div>
-              <div className="col-sm-4">
-              <Card>
-                <Card.Title>{"Vice President"}</Card.Title>
-                <Card.Img variant="top" src="images/matt.jpg" alt="picture of matt"/>
-                <Card.Body>
-                  <Card.Text>
-                    {"Matt"}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              </div>
-              <div className="col-sm-4">
-              <Card>
-                <Card.Title>{"Treasurer"}</Card.Title>
-                <Card.Img variant="top" src="images/patrick.jpg" alt="picture of patrick"/>
-                <Card.Body>
-                  <Card.Text>
-                    {"Patrick"}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              </div>
-            </div>
-
-
-            
 
         </div>
       </main>

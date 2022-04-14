@@ -1,5 +1,10 @@
 ## List of TODOS for the website:
 
+What we are working on:
+- try migrating emailJS from frontend to "backend" because it isn't working on the frontend.
+- - looks like we need to use NodeMailer, or emailjs (NOT THE SAME AS EMAILJS-COM)
+https://stackoverflow.com/questions/4113701/sending-emails-in-node-js
+
 As soon as possible:
 - get mongoDB setup for:
 - - card catalog

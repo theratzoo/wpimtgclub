@@ -7,6 +7,7 @@ module.exports = {
         "fs": false,
         "path": false,
         "os": false,
+	"crypto": require.resolve('crypto-browserify'),
       }
     }
     return config

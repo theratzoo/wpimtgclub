@@ -228,10 +228,10 @@ export default class Catalog extends React.Component {
 					<MyNavbar/>
 					<div className="container">
 						<div className="jumbotron">
-							<h1>Catalog- Work in Progress! </h1>
+							<h1>Catalog</h1>
 						</div>
 						<br/>
-						<p>To order a card, message one of the officers on Discord. We are able to ship, you will just have to pay for the shipping (about 78 cents w/o tracking and $5 with tracking).</p>
+						<p>To order a card, message one of the officers on Discord. In addition, we are able to ship, you will just have to pay for the shipping (about 78 cents w/o tracking and $5 with tracking).</p>
 						<div style={{display: this.state.displayCart ? 'block' : 'none' }}>
 							<Cart cart={this.state.currentCartItems}/>
 						</div>
