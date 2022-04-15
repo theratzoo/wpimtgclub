@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card'
 import styles from '../styles/Home.module.css'
 import MyNavbar from './navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Footer from './footer'
 
 export default function Home() {
   return (
@@ -30,8 +31,8 @@ export default function Home() {
             <h2>Upcoming Events</h2>
             <div className="row">
               <div className="col-sm-4">
-              <Card>
-                <Card.Title>Wednesday Casuals</Card.Title>
+              <Card className="customCard">
+                <Card.Title>&emsp;Wednesday Casuals</Card.Title>
                 <Card.Img variant="top" src="images/casuals.png" alt="casuals"/>
                 <Card.Body>
                   <Card.Text>
@@ -43,8 +44,8 @@ export default function Home() {
               </Card>
               </div>
               <div className="col-sm-4">
-              <Card>
-                <Card.Title>Saturday Casuals</Card.Title>
+              <Card className="customCard">
+                <Card.Title>&emsp;Saturday Casuals</Card.Title>
                 <Card.Img variant="top" src="images/casuals.png" alt="casuals"/>
                 <Card.Body>
                   <Card.Text>
@@ -56,8 +57,8 @@ export default function Home() {
               </Card>
               </div>
               <div className="col-sm-4">
-              <Card>
-                <Card.Title>Gaming Weekend: April 29-30</Card.Title>
+              <Card className="customCard">
+                <Card.Title>&emsp;Gaming Weekend: April 29-30</Card.Title>
                 <Card.Img variant="top" src="images/newcapenna.jpeg" alt="gaming weekend"/>
                 <Card.Body>
                   <Card.Text>
@@ -80,18 +81,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer></Footer>
     </div>
   )
 }

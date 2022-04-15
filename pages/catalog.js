@@ -9,6 +9,7 @@ import Select from "react-select";
 import Cart from './cart.js'
 import fixPrice from './functions/fixprice.js'
 import fixCondition from './functions/fixcondition.js'
+import Footer from './footer'
 
 let data = require('dsv-loader!../spreadsheets/mtg_card_catalog.csv')
 export default class Catalog extends React.Component {
@@ -227,9 +228,8 @@ export default class Catalog extends React.Component {
 				<main>
 					<MyNavbar/>
 					<div className="container">
-						<div className="jumbotron">
+						<br/>
 							<h1>Catalog</h1>
-						</div>
 						<br/>
 						<p>To order a card, message one of the officers on Discord. In addition, we are able to ship, you will just have to pay for the shipping (about 78 cents w/o tracking and $5 with tracking).</p>
 						<div style={{display: this.state.displayCart ? 'block' : 'none' }}>
@@ -277,6 +277,8 @@ export default class Catalog extends React.Component {
 						<br/>
 					</div>
 				</main>
+
+				<Footer></Footer>
 			</div>
 		)
 	}

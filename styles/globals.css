@@ -11,6 +11,15 @@ body {
   background-color:silver !important;
 }
 
+.customCard {
+  background-color: #F8F9FA !important;
+}
+
+.customFooter {
+  background-color: silver;
+  padding: 0px 40px 40px 40px;
+}
+
 .banner {
   max-width:100%;
   height:auto;
