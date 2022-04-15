@@ -23,7 +23,7 @@ export default function Home() {
       <main>
         <MyNavbar/>
         <div className="container">
-          <div className="text-center"><img src="/images/mtgbanner.jpeg" alt="mtg banner" className="img-responsive"/></div>
+          <div className="text-center"><img src="/images/mtgbanner.jpeg" alt="mtg banner" className="img-responsive banner"/></div>
           <br></br>            
             <p name="about_us">WPI MTG club is a student club where students play Magic: the Gathering with each other. The club meets twice a week for casual play in a variety of formats, along with hosting occassional tournaments like paid drafts. Meetings are open to anyone: 7pm at the Campus Center first floor on Wednesdays and Saturdays.</p>
             <br/>
