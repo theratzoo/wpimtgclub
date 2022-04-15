@@ -42,15 +42,15 @@ export default function Home() {
         <hr/>
         <h2>Club Socials</h2>
         <p>Below are the best ways to get in contact with the club and keep up with the latest events and news.</p>
-        <h3>Discord</h3>
+        <h3>Discord <Image src="/images/discord.png" alt="discord icon" width="25px" height="25px"></Image></h3>
         <p>Discord is the main communication platform used by the club. Most announcements are there, along with general discussions among the club members (and alumni) about Magic related topics.</p>
         <Link href="https://discord.gg/8ccfGKc">Discord Invite Link</Link>
         <hr/>
-        <h3>Instagram</h3>
+        <h3>Instagram <Image src="/images/instagram.png" alt="instagram icon" width="25px" height="25px"></Image></h3>
         <p>The club also has an Instagram, which gives updates to events and posts other content related to the club.</p>
         <Link href="https://www.instagram.com/invites/contact/?i=4qgkk0do7m5m&utm_content=o9p00a9">@wpi_mtg_club</Link>
         <hr/>
-        <h3>Email</h3>
+        <h3>Email <Image src="/images/email.png" alt="email icon" width="25px" height="25px"></Image></h3>
         <p>{"Another means of contact is through the club\'s official email."}</p>
         <Link href="mailto:wpimtgclub@gmail.com">wpimtgclub@gmail.com</Link>
 
