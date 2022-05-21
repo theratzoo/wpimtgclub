@@ -40,10 +40,18 @@ export default class Catalog extends React.Component {
 	}
 
 	handleToUpdate(nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter) {
+		const isCardAllowed = this.isCardAllowed
+		const data = this.state.data.filter(isCardAllowed.bind(this))
+		const maxPages = Math.floor(data.length/20) + 1;
 		this.setState({
 			filters:{nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter},
-			displaySearchMenu: false  // hide menu
+			displaySearchMenu: false,  // hide menu,
+			pageNumber:1,
+			isPrevDisabled: true,
+			isNextDisabled: maxPages > 1,
 		});
+		
+
 	}
 
 	isCardAllowed(card) {
@@ -212,7 +220,6 @@ export default class Catalog extends React.Component {
 			displayData.push(data[i]);
 		}
 		const maxPages = Math.floor(data.length/20) + 1;
-
 		return (
 			<div>
 				<Head>
