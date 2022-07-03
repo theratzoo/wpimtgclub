@@ -7,10 +7,22 @@ import csv
 from time import sleep
 import requests
 import json
+from types import SimpleNamespace
 
 load_dotenv()
 
-bearer = "bearer " + str(os.getenv('BEARER'))
+# For new generation of api keys
+secret = None
+with open('.apikey') as apikey_file:
+    for line in apikey_file:
+        if "access_token" in line:
+            x = json.loads(line, object_hook=lambda d: SimpleNamespace(**d))
+            secret = x.access_token
+            apikey_file.close()
+            break
+
+# OLD METHOD: str(os.getenv('BEARER'))
+bearer = "bearer " + secret
 
 headers = {"Accept": "application/json", "Authorization": bearer}
 
