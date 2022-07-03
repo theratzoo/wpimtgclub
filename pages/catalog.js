@@ -39,24 +39,33 @@ export default class Catalog extends React.Component {
 		const handleToUpdate = this.handleToUpdate.bind(this);
 	}
 
+	
+
 	handleToUpdate(nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter) {
-		const isCardAllowed = this.isCardAllowed
-		const data = this.state.data.filter(isCardAllowed.bind(this))
-		const maxPages = Math.floor(data.length/20) + 1;
+		let maxPages = this.getMaxPages({nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter})
 		this.setState({
 			filters:{nameFilter, oracleTextFilter, cmcTypeFilter, cmcFilter, typesFilter, colorsFilter, formatLegalitiesFilter, setsFilter, rarityFilter},
 			displaySearchMenu: false,  // hide menu,
 			pageNumber:1,
 			isPrevDisabled: true,
-			isNextDisabled: maxPages > 1,
+			isNextDisabled: maxPages <= 1
 		});
-		
-
 	}
 
-	isCardAllowed(card) {
+	getMaxPages(filters) {
+		const data = this.state.data
+		let count = 0
+		for (let i=0; i<data.length; i++) {
+			if (this.isCardAllowedHelper(data[i], filters)) {
+				count ++;
+			}
+		}
+		return Math.floor(count/20) + 1
+	}
+
+	isCardAllowedHelper(card, filters) {
 		let cmcFilterType = "Equal To";
-		for (const [key, value] of Object.entries(this.state.filters)) {
+		for (const [key, value] of Object.entries(filters)) {
 			switch(key) {
 				case "nameFilter":
 					if (!card['Card Name'].toLowerCase().includes(value.toLowerCase())) {
@@ -144,6 +153,10 @@ export default class Catalog extends React.Component {
 			}
 		}
 		return true
+	}
+
+	isCardAllowed(card) {
+		return this.isCardAllowedHelper(card, this.state.filters)
 	}
 
 	getItems(q) {
