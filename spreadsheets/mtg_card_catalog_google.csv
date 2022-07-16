@@ -30,11 +30,9 @@ Reviving Dose,1,INV,SP,y,EN
 Sacred Nectar,1,7ED,SP,y,EN
 Scent of Jasmine,1,UDS,SP,y,EN
 Seasoned Marshal,1,7ED,SP,y,EN
-Seraph,2,5ED,MP,n,EN
+Seraph,1,5ED,MP,n,EN
 Seraph,1,5ED,HP,n,EN
 Serra Advocate,1,7ED,SP,y,EN
-Serra Angel,1,7ED,SP,n,EN
-Tithe,1,VIS,MP,n,EN
 Voice of All,8,PLS,SP,n,EN
 Watcher Sliver,1,TSP,SP,y,EN
 Wave of Reckoning,1,MMQ,SP,y,EN
@@ -56,6 +54,73 @@ Divine Presence,1,INV,SP,n,EN
 Humble,1,USG,SP,n,EN
 Purify,1,ULG,SP,n,EN
 Divine Offering,1,MIR,SP,n,EN
+Talon Sliver,1,TMP,SP,n,EN
+Slaughter the Strong,1,RIX,NM,n,EN
+Bishop of Rebirth,1,XLN,NM,n,EN
+Children of Korlis,1,TSP,NM,n,EN
+Flickering Ward,7,TMP,SP,n,EN
+Fight or Flight,1,INV,SP,n,EN
+Mageta the Lion,2,PCY,SP,n,EN
+Rappelling Scouts,2,MMQ,SP,n,EN
+Avenger en-Dal,1,NEM,SP,n,EN
+Avatar of Hope,1,PCY,SP,n,EN
+"Radiant, Archangel",2,ULG,SP,n,EN
+Mercenary Informer,2,PCY,SP,n,EN
+Master Healer,1,7ED,SP,n,EN
+Master Healer,2,UDS,SP,n,EN
+Planar Collapse,2,ULG,SP,n,EN
+Ramosian Sky Marshal,2,MMQ,SP,n,EN
+Planeswalker's Mirth,1,PLS,SP,n,EN
+Pariah,1,7ED,SP,n,EN
+Pariah,1,USG,SP,n,EN
+Parallax Wave,1,NEM,SP,n,EN
+Security Detail,1,MMQ,SP,n,EN
+Patron of the Kitsune,1,BOK,SP,n,EN
+Pious Warrior,1,MMQ,SP,y,EN
+Angelic Curator,1,ULG,SP,y,EN
+Cloudchaser Eagle,1,7ED,SP,y,EN
+Opal Titan,3,USG,SP,n,EN
+Tivadar of Thorn,1,TSP,SP,n,EN
+Harsh Judgment,1,INV,SP,n,EN
+"Atalya, Samite Master",2,INV,SP,n,EN
+False Prophet,2,UDS,SP,n,EN
+Opal Avenger,2,ULG,SP,n,EN
+Sunweb,4,6ED,SP,n,EN
+Sunweb,1,MIR,SP,n,EN
+Standing Troops,1,7ED,SP,y,EN
+Ethereal Champion,2,MIR,SP,n,EN
+Ethereal Champion,1,6ED,SP,n,EN
+Soraya the Falconer,2,HML,SP,n,EN
+Exalted Dragon,3,EXO,SP,n,EN
+Gift of Estates,1,POR,MP,n,EN
+Faith Healer,3,USG,SP,n,EN
+Oath of Lieges,3,EXO,SP,n,EN
+Herald of Serra,1,USG,MP,n,EN
+Sacred Ground,2,7ED,SP,n,EN
+Samite Elder,2,PLS,SP,n,EN
+Herald of Serra,1,USG,SP,n,EN
+Kjeldoran Royal Guard,3,7ED,SP,n,EN
+Kjeldoran Royal Guard,4,6ED,SP,n,EN
+Jeweled Spirit,2,PCY,SP,n,EN
+Jhovall Rider,1,MMQ,SP,y,EN
+Worship,1,7ED,SP,n,EN
+Spiritual Asylum,1,NEM,SP,n,EN
+Spiritual Focus,3,MMQ,SP,n,EN
+Spirit of Resistance,2,INV,SP,n,EN
+Tragic Poet,1,ULG,SP,y,EN
+Soul Sculptor,3,USG,SP,n,EN
+Sunscape Master,1,INV,SP,n,EN
+Wayfaring Giant,1,INV,SP,y,EN
+Martyr's Cause,1,ULG,SP,y,EN
+Opal Champion,1,ULG,SP,y,EN
+Benalish Lancer,1,INV,SP,y,EN
+Defender of Law,1,ULG,SP,y,EN
+Shackles,1,INV,SP,y,EN
+Remembrance,4,USG,SP,n,EN
+Reconnaissance,9,EXO,SP,n,EN
+Sunscape Familiar,4,PLS,SP,n,EN
+Soul Warden,15,EXO,SP,n,EN
+Troubled Healer,1,PCY,SP,y,EN
 Air Elemental,1,2ED,SP,n,EN
 Air Elemental,1,2ED,MP,n,EN
 Alexi's Cloak,1,PCY,SP,y,EN
@@ -71,13 +136,12 @@ Bribery,1,MMQ,SP,n,EN
 Capsize,10,TMP,SP,n,EN
 Capsize,5,TMP,MP,n,EN
 Coastal Piracy,3,MMQ,SP,n,EN
-Collective Restraint,3,INV,SP,n,EN
-Counterspell,12,7ED,SP,n,EN
+Collective Restraint,2,INV,SP,n,EN
+Counterspell,8,7ED,SP,n,EN
 Counterspell,1,5ED,SP,n,EN
 Counterspell,1,BTD,SP,n,EN
 Counterspell,2,ICE,MP,n,EN
-Counterspell,4,6ED,SP,n,EN
-Counterspell,13,MMQ,SP,n,EN
+Counterspell,12,MMQ,SP,n,EN
 Counterspell,3,TMP,SP,n,EN
 Counterspell,9,TMP,MP,n,EN
 Counterspell,5,TMP,HP,n,EN
@@ -110,24 +174,23 @@ Intruder Alarm,2,STH,SP,n,EN
 Intuition,3,TMP,SP,n,EN
 Lord of Atlantis,1,7ED,SP,y,EN
 Lord of Atlantis,2,7ED,SP,n,EN
-Mana Breach,3,EXO,SP,n,EN
-Mana Maze,1,INV,SP,n,EN
+Mana Breach,9,EXO,SP,n,EN
+Mana Maze,2,INV,SP,n,EN
 Mana Severance,3,TMP,SP,n,EN
 Meditate,1,TMP,SP,n,EN
 Mind Over Matter,3,EXO,SP,n,EN
 Morphling,1,USG,SP,n,EN
-Mystic Remora,3,ICE,SP,n,EN
-Opt,9,INV,SP,n,EN
+Mystic Remora,2,ICE,SP,n,EN
+Opt,12,INV,SP,n,EN
 Overburden,1,PCY,SP,n,EN
-Propaganda,10,TMP,SP,n,EN
+Propaganda,9,TMP,SP,n,EN
 Quash,1,UDS,SP,y,EN
-Rhystic Study,4,PCY,SP,n,EN
+Rhystic Study,2,PCY,SP,n,EN
 Scent of Brine,1,UDS,SP,y,EN
 Seahunter,2,NEM,SP,n,EN
 Second Chance,2,ULG,SP,n,EN
 Second Chance,1,ULG,MP,n,EN
 Show and Tell,1,USG,SP,n,EN
-Sisay's Ingenuity,1,PLS,SP,y,EN
 Sky Weaver,1,INV,SP,y,EN
 Sleight of Hand,13,7ED,SP,n,EN
 Soothsaying,3,MMQ,SP,n,EN
@@ -136,7 +199,6 @@ Stinging Barrier,1,MMQ,MP,y,EN
 Stormscape Apprentice,1,INV,SP,y,EN
 Submerge,1,NEM,SP,y,EN
 Sunder,1,USG,SP,n,EN
-Taniwha,1,MIR,SP,n,EN
 Teferi's Response,2,INV,SP,n,EN
 Thornwind Faeries,1,ULG,MP,y,EN
 Tinker,4,ULG,SP,n,EN
@@ -149,19 +211,82 @@ Wall of Kelp,1,HML,HP,n,EN
 Weatherseed Faeries,1,ULG,SP,y,EN
 Windfall,3,USG,SP,n,EN
 Withdraw,2,PCY,SP,y,EN
-Zephid,2,USG,SP,n,EN
+Zephid,4,USG,SP,n,EN
 Stubborn Denial,1,KTK,SP,n,EN
 "Chisei, Heart of Oceans",1,BOK,SP,n,EN
 Prohibit,1,INV,SP,y,EN
 Archivist,1,7ED,SP,n,EN
-Anthroplasm,1,ULG,MP,n,EN
-Control Magic,1,4ED,HP,n,EN
+Anthroplasm,3,ULG,MP,n,EN
+Control Magic,2,4ED,HP,n,EN
 Ovinomancer,1,VIS,HP,n,EN
 Energy Flux,1,4ED,SP,n,EN
 Opportunity,1,ULG,SP,n,EN
 Frantic Search,1,ULG,SP,n,EN
 Reins of Power,1,STH,MP,n,EN
 Prodigal Sorcerer,1,6ED,SP,n,EN
+Storm Crow,1,7ED,SP,n,EN
+Opt,5,DOM,NM,n,EN
+Tolarian Winds,4,USG,SP,n,EN
+Merchant Scroll,1,HML,MP,n,EN
+Mind Bend,1,MIR,SP,n,EN
+Mind Bend,1,MIR,MP,n,EN
+Saprazzan Heir,2,MMQ,SP,n,EN
+Saprazzan Bailiff,1,MMQ,SP,n,EN
+Sand Squid,1,MMQ,SP,n,EN
+Rootwater Thief,1,NEM,SP,n,EN
+Paradigm Shift,2,WTH,MP,n,EN
+Charisma,1,MMQ,SP,n,EN
+Denying Wind,1,PCY,SP,n,EN
+Psychic Theft,2,PCY,SP,n,EN
+"Alexi, Zephyr Mage",1,PCY,SP,n,EN
+Rising Waters,1,NEM,SP,n,EN
+Delusions of Mediocrity,2,ULG,SP,n,EN
+Distorting Wake,1,INV,SP,n,EN
+Sleight of Mind,2,5ED,SP,n,EN
+Govern the Guildless,1,DIS,SP,n,EN
+Wall of Wonder,1,7ED,SP,n,EN
+Opt,4,XLN,NM,n,EN
+Mana Short,1,7ED,SP,n,EN
+Mawcor,2,7ED,SP,n,EN
+Mulldrifter,1,LRW,SP,n,EN
+Legacy's Allure,2,TMP,SP,n,EN
+Winged Sliver,10,TMP,SP,n,EN
+Dream Tides,2,VIS,SP,n,EN
+Cloud of Faeries,13,ULG,SP,n,EN
+Counterspell,1,6ED,SP,n,EN
+Energy Flux,1,5ED,SP,n,EN
+Attunement,3,USG,SP,n,EN
+Oath of Scholars,5,EXO,SP,n,EN
+Deflection,1,7ED,SP,n,EN
+Benthic Behemoth,1,7ED,SP,n,EN
+Mahamoti Djinn,1,7ED,SP,n,EN
+Blizzard Elemental,1,UDS,SP,n,EN
+Thwart,1,MMQ,MP,n,EN
+Mulldrifter,1,C14,NM,n,EN
+Balduvian Shaman,4,ICE,SP,n,EN
+Impulse,14,VIS,SP,n,EN
+Thalakos Drifters,2,EXO,SP,n,EN
+Prosperity,1,VIS,SP,n,EN
+Tidal Kraken,1,MMQ,SP,n,EN
+War Tax,6,MMQ,SP,n,EN
+Curiosity,3,EXO,SP,n,EN
+Juxtapose,1,5ED,SP,n,EN
+Well-Laid Plans,1,INV,SP,n,EN
+Daring Apprentice,1,6ED,SP,n,EN
+Daring Apprentice,2,MIR,SP,n,EN
+Veiled Crocodile,3,USG,SP,n,EN
+Juxtapose,3,6ED,SP,n,EN
+Prosperity,1,6ED,SP,n,EN
+Polymorph,1,MIR,SP,n,EN
+Delusions of Mediocrity,1,7ED,SP,n,EN
+Troublesome Spirit,1,PCY,SP,n,EN
+Blue Elemental Blast,2,3ED,SP,n,EN
+Blue Elemental Blast,3,4ED,SP,n,EN
+Blue Elemental Blast,2,4ED,MP,n,EN
+Curiosity,1,ISD,NM,n,EN
+Portent,5,5ED,SP,n,EN
+Portent,1,5ED,MP,n,EN
+Reality Acid,1,PLC,SP,n,EN
 Andradite Leech,1,INV,SP,y,EN
 Animate Dead,1,3ED,HP,n,EN
 Apprentice Necromancer,1,UDS,SP,n,EN
@@ -177,7 +302,7 @@ Bog Imp,1,7ED,SP,y,EN
 Bog Witch,1,MMQ,SP,y,EN
 Bone Dancer,4,WTH,SP,n,EN
 Bounty Hunter,2,TMP,MP,n,EN
-Bubbling Muck,12,UDS,SP,n,EN
+Bubbling Muck,13,UDS,SP,n,EN
 Buried Alive,3,ODY,SP,n,EN
 Buried Alive,4,WTH,MP,n,EN
 Call to the Netherworld,1,TSP,SP,y,EN
@@ -185,7 +310,7 @@ Carnival of Souls,2,UDS,SP,n,EN
 Carnival of Souls,1,UDS,MP,n,EN
 Catacomb Dragon,1,MIR,MP,n,EN
 Chittering Rats,2,DST,SP,n,EN
-Choking Sands,9,MIR,SP,n,EN
+Choking Sands,10,MIR,SP,n,EN
 Choking Sands,7,MIR,MP,n,EN
 Coffin Queen,1,TMP,MP,n,EN
 Contamination,1,USG,MP,n,EN
@@ -198,17 +323,17 @@ Crypt Rats,1,VIS,HP,n,EN
 Crypt Rats,4,7ED,SP,n,EN
 Culling the Weak,6,EXO,MP,n,EN
 Culling the Weak,12,EXO,HP,n,EN
-Dance of the Dead,2,ICE,MP,n,EN
+Dance of the Dead,1,ICE,MP,n,EN
 Dark Ritual,1,BTD,SP,n,EN
 Dark Ritual,6,MMQ,SP,n,EN
-Dark Ritual,3,USG,SP,n,EN
+Dark Ritual,4,USG,SP,n,EN
 Dark Ritual,3,USG,MP,n,EN
 Dark Ritual,2,5ED,SP,n,EN
 Dark Ritual,3,5ED,MP,n,EN
 Dark Ritual,3,TMP,SP,n,EN
-Dark Ritual,4,TMP,MP,n,EN
+Dark Ritual,5,TMP,MP,n,EN
 Dark Ritual,3,MIR,SP,n,EN
-Dark Ritual,2,MIR,MP,n,EN
+Dark Ritual,3,MIR,MP,n,EN
 Dark Ritual,3,MIR,HP,n,EN
 Dark Ritual,2,4ED,MP,n,EN
 Darkest Hour,2,USG,SP,n,EN
@@ -217,7 +342,7 @@ Darkest Hour,1,7ED,SP,n,EN
 Death Bomb,1,PLS,SP,y,EN
 Deathgazer,1,MMQ,SP,y,EN
 Defiling Tears,1,INV,SP,y,EN
-Demonic Consultation,2,ICE,MP,n,EN
+Demonic Consultation,1,ICE,MP,n,EN
 Demonic Consultation,1,ICE,HP,n,EN
 Diabolic Edict,1,BTD,MP,n,EN
 Diabolic Edict,4,TMP,SP,n,EN
@@ -230,7 +355,7 @@ Dread of Night,2,TMP,SP,n,EN
 Engineered Plague,4,7ED,SP,n,EN
 Engineered Plague,1,ULG,HP,n,EN
 Eviscerator,1,ULG,SP,y,EN
-Exhume,10,USG,SP,n,EN
+Exhume,9,USG,SP,n,EN
 Exhume,4,USG,MP,n,EN
 Extinction,3,TMP,SP,n,EN
 Fear,1,7ED,SP,y,EN
@@ -238,9 +363,9 @@ Funeral Charm,2,TSP,MP,n,EN
 Gallowbraid,1,WTH,SP,n,EN
 Grave Pact,1,STH,SP,n,EN
 Gravedigger,1,7ED,SP,y,EN
-Greed,1,7ED,SP,n,EN
+Greed,2,7ED,SP,n,EN
 Gutter Skulk,1,GTC,SP,y,EN
-Hatred,1,EXO,SP,n,EN
+Doomwake Giant,1,JOU,SP,n,EN
 Hatred,1,EXO,HP,n,EN
 Haunted Crossroads,1,MMQ,SP,y,EN
 Hypnotic Cloud,1,INV,SP,y,EN
@@ -275,7 +400,7 @@ Phthisis,1,MMA,SP,y,EN
 Phyrexian Negator,3,UDS,SP,n,EN
 Phyrexian Negator,1,UDS,MP,n,EN
 Phyrexian Reaper,2,INV,SP,y,EN
-Phyrexian Reclamation,6,ULG,SP,n,EN
+Phyrexian Reclamation,4,ULG,SP,n,EN
 Phyrexian Reclamation,1,ULG,MP,n,EN
 Plague Fiend,1,PCY,SP,y,EN
 Plague Wind,1,PCY,SP,n,EN
@@ -304,12 +429,11 @@ Victimize,4,USG,SP,n,EN
 Virtue's Ruin,1,POR,MP,n,EN
 Volcano Imp,1,PLS,SP,y,EN
 Yawgmoth's Bargain,3,UDS,SP,n,EN
-Yawgmoth's Will,2,USG,SP,n,EN
 Zombie Master,1,4ED,MP,n,EN
 Zombie Master,1,5ED,SP,n,EN
 Zombie Master,1,6ED,SP,n,EN
 Skeletal Crocodile,1,POR,MP,n,EN
-Megrim,2,STH,SP,n,EN
+Megrim,11,STH,SP,n,EN
 Dauthi Horror,1,TMP,MP,n,EN
 Promise of Power,1,MRD,MP,n,EN
 Promise of Power,2,MRD,SP,n,EN
@@ -319,7 +443,33 @@ Unearth,3,ULG,SP,n,EN
 Unearth,1,ULG,MP,n,EN
 Snuff Out,9,MMQ,SP,n,EN
 Snuff Out,1,MMQ,MP,n,EN
-Grip of Chaos,1,SCG,MP,n,EN
+Uncle Istvan,1,4ED,SP,n,EN
+Go for the Throat,4,MBS,SP,n,EN
+Gray Merchant of Asphodel,4,THS,SP,n,EN
+Nightscape Familiar,4,PLS,SP,n,EN
+Pestilence,2,3ED,MP,n,EN
+Diabolic Tutor,1,ODY,SP,n,EN
+Wave of Terror,1,WTH,SP,n,EN
+Pestilence,8,5ED,SP,n,EN
+Pestilence,1,3ED,SP,n,EN
+Megrim,4,7ED,SP,n,EN
+Shriekmaw,1,C14,SP,n,EN
+"Torgaar, Famine Incarnate",1,DOM,SP,n,EN
+Megrim,1,STH,MP,n,EN
+Pestilence,8,5ED,MP,n,EN
+Pestilence,4,4ED,SP,n,EN
+Pestilence,2,4ED,MP,n,EN
+Pestilence,14,USG,SP,n,EN
+Cuombajj Witches,1,CHR,SP,n,EN
+Phyrexian Scuta,1,PLS,SP,n,EN
+Bellowing Fiend,1,7ED,SP,n,EN
+Vebulid,1,USG,SP,n,EN
+Diabolic Tutor,1,M14,SP,n,EN
+Vampire Nighthawk,1,M13,SP,n,EN
+Vampire Nighthawk,1,C13,SP,n,EN
+Vampire Nighthawk,1,ZEN,SP,n,EN
+Vampire Nighthawk,1,DDK,SP,n,EN
+Pia and Kiran Nalaar,1,ORI,SP,n,EN
 Sarkhan's Triumph,1,DTK,SP,n,EN
 Lightning Bolt,1,BTD,SP,n,EN
 Repercussion,1,UDS,SP,n,EN
@@ -331,6 +481,16 @@ Stone Rain,1,POR,MP,n,EN
 Scorching Winds,1,POR,MP,n,EN
 Lavaborn Muse,3,LGN,SP,n,EN
 Wall of Fire,1,3ED,HP,n,EN
+Rite of Flame,1,CSP,SP,n,EN
+Pyrokinesis,1,ALL,MP,n,EN
+Flametongue Kavu,1,PLS,SP,n,EN
+Orcish Lumberjack,1,ICE,SP,n,EN
+Impending Disaster,1,ULG,SP,n,EN
+Goblin Shrine,2,CHR,SP,n,EN
+Two-Headed Giant,2,DOM,NM,n,EN
+The First Eruption,1,DOM,NM,n,EN
+Orcish Lumberjack,1,ICE,MP,n,EN
+Mogg War Marshal,1,TSP,SP,n,EN
 Aboroth,1,WTH,SP,n,EN
 Ancestral Mask,7,MMQ,SP,n,EN
 Ancestral Mask,2,MMQ,MP,n,EN
@@ -445,6 +605,34 @@ Saproling Burst,1,NEM,SP,n,EN
 Fyndhorn Elves,1,ICE,MP,n,EN
 Whirling Dervish,1,5ED,SP,n,EN
 Muscle Sliver,2,TMP,SP,n,EN
+Elemental Bond,1,ORI,SP,n,EN
+Wood Elves,1,9ED,SP,n,EN
+Beastcaller Savant,1,BFZ,SP,n,EN
+Natural Balance,1,MIR,SP,n,EN
+Wild Growth,3,4ED,SP,n,EN
+Wild Growth,1,4ED,MP,n,EN
+Wild Growth,3,4ED,HP,n,EN
+Wild Growth,8,5ED,SP,n,EN
+Wild Growth,3,5ED,MP,n,EN
+Wild Growth,7,6ED,SP,n,EN
+Wild Growth,13,7ED,SP,n,EN
+Wild Growth,5,ICE,SP,n,EN
+Nature's Revolt,1,7ED,SP,n,EN
+Nature's Revolt,3,TMP,SP,n,EN
+Rhox,1,NEM,SP,n,EN
+Bind,1,INV,SP,n,EN
+Jade Leech,1,INV,SP,n,EN
+Wood Elves,15,7ED,SP,n,EN
+Rampant Growth,18,TMP,SP,n,EN
+Llanowar Elves,1,3ED,MP,n,EN
+Llanowar Elves,1,4ED,MP,n,EN
+Wild Growth,1,3ED,HP,n,EN
+Wood Elves,1,EXO,SP,n,EN
+Wall of Blossoms,2,STH,SP,n,EN
+Tinder Wall,1,ICE,SP,n,EN
+Wall of Roots,1,MIR,SP,n,EN
+Early Harvest,1,7ED,SP,n,EN
+Skyshroud Elite,9,EXO,SP,n,EN
 "Asmira, Holy Avenger",4,MIR,MP,n,EN
 Aura Mutation,1,INV,MP,n,EN
 Aura Shards,1,INV,SP,n,EN
@@ -464,19 +652,19 @@ Firestorm Hellkite,2,VIS,SP,n,EN
 Firestorm Hellkite,1,VIS,MP,n,EN
 Frenetic Efreet,1,MIR,SP,n,EN
 Frenetic Efreet,1,MIR,MP,n,EN
-Guiding Spirit,2,VIS,SP,n,EN
+Guiding Spirit,1,VIS,SP,n,EN
 "Hanna, Ship's Navigator",2,INV,SP,n,EN
 Hibernation Sliver,3,STH,SP,n,EN
 Hibernation Sliver,1,STH,MP,n,EN
 "Kangee, Aerie Keeper",3,INV,SP,n,EN
-Lim-Dul's Vault,3,ALL,SP,n,EN
+Lim-Dul's Vault,2,ALL,SP,n,EN
 Lim-Dul's Vault,1,ALL,MP,n,EN
 Malicious Advice,1,PLS,SP,y,EN
 Misfortune,1,ALL,SP,n,EN
 Phelddagrif,4,ALL,SP,n,EN
 Phyrexian Purge,1,MIR,SP,n,EN
 Phyrexian Purge,1,MIR,MP,n,EN
-Phyrexian Tyranny,2,PLS,SP,n,EN
+Phyrexian Tyranny,1,PLS,SP,n,EN
 Pyre Zombie,1,INV,SP,n,EN
 Purgatory,1,MIR,SP,n,EN
 Purgatory,1,MIR,MP,n,EN
@@ -487,7 +675,6 @@ Reflect Damage,1,MIR,SP,n,EN
 Reparations,3,MIR,SP,n,EN
 Righteous War,2,VIS,SP,n,EN
 Rith's Charm,1,PLS,SP,y,EN
-"Rith, the Awakener",1,INV,SP,n,EN
 Rock Basilisk,3,MIR,SP,n,EN
 Sawback Manticore,1,MIR,SP,n,EN
 "Selenia, Dark Angel",1,TMP,SP,n,EN
@@ -509,6 +696,9 @@ Yavimaya Barbarian,1,INV,SP,y,EN
 Purgatory,1,MIR,HP,n,EN
 Invoke the Firemind,1,GPT,SP,n,EN
 Lurking Informant,1,RAV,SP,n,EN
+Golgari Charm,2,RTR,SP,n,EN
+Izzet Charm,2,RTR,SP,n,EN
+Cavern Harpy,2,PLS,SP,n,EN
 Acidic Dagger,1,MIR,MP,n,EN
 Aegis of the Meek,1,ICE,MP,n,EN
 Altar of Dementia,3,TMP,MP,n,EN
@@ -517,16 +707,16 @@ Ankh of Mishra,1,6ED,SP,n,EN
 Anvil of Bogardan,2,VIS,SP,n,EN
 Arena,1,TSP,SP,n,EN
 Arena,1,TSP,MP,n,EN
-Ashnod's Altar,6,6ED,SP,n,EN
+Ashnod's Altar,5,6ED,SP,n,EN
 Ashnod's Cylix,1,ALL,SP,n,EN
 Balduvian Trading Post,3,ALL,SP,n,EN
 Barl's Cage,1,DRK,MP,n,EN
 Belbe's Portal,1,NEM,SP,n,EN
 Bone Mask,1,MIR,MP,n,EN
-Bosium Strip,3,WTH,SP,n,EN
+Bosium Strip,2,WTH,SP,n,EN
 Bubble Matrix,2,WTH,SP,n,EN
 Caldera Lake,4,TMP,SP,n,EN
-Charcoal Diamond,2,MIR,SP,n,EN
+Charcoal Diamond,1,MIR,SP,n,EN
 Charcoal Diamond,3,7ED,SP,n,EN
 Charcoal Diamond,3,6ED,SP,n,EN
 Chromatic Star,2,TSP,SP,n,EN
@@ -561,13 +751,12 @@ Griffin Canyon,2,VIS,SP,n,EN
 Gustha's Scepter,1,ALL,SP,n,EN
 Heartstone,6,STH,SP,n,EN
 Heartstone,1,STH,MP,n,EN
-Helm of Awakening,8,VIS,SP,n,EN
+Helm of Awakening,7,VIS,SP,n,EN
 Helm of Obedience,1,ALL,SP,n,EN
 Helm of Possession,1,TMP,SP,n,EN
 Henge Guardian,1,MMQ,SP,y,EN
 High Market,3,MMQ,SP,n,EN
 Horn of Greed,1,STH,SP,n,EN
-Howling Mine,1,6ED,SP,n,EN
 Howling Mine,1,7ED,SP,n,EN
 Implements of Sacrifice,1,FEM,MP,n,EN
 Iron Maiden,2,ULG,SP,n,EN
@@ -578,10 +767,10 @@ Lake of the Dead,1,ALL,SP,n,EN
 Library of Leng,1,3ED,HP,n,EN
 Library of Leng,1,4ED,SP,n,EN
 Library of Leng,4,5ED,SP,n,EN
-Lotus Petal,7,TMP,SP,n,EN
+Lotus Petal,6,TMP,SP,n,EN
 Magistrate's Scepter,2,MMQ,SP,n,EN
 Mangara's Tome,1,MIR,SP,n,EN
-Marble Diamond,2,MIR,SP,n,EN
+Marble Diamond,1,MIR,SP,n,EN
 Marble Diamond,6,7ED,SP,n,EN
 Masticore,3,UDS,SP,n,EN
 Meekstone,1,5ED,SP,n,EN
@@ -591,13 +780,12 @@ Mountain Valley,4,MIR,MP,n,EN
 Mountain Valley,3,MIR,SP,n,EN
 Noetic Scales,2,USG,SP,n,EN
 Paupers' Cage,1,MIR,SP,n,EN
-Pearl Medallion,2,TMP,SP,n,EN
 Phyrexian Devourer,6,ALL,SP,n,EN
 Phyrexian Grimoire,2,TMP,SP,n,EN
 Phyrexian Marauder,1,VIS,SP,n,EN
 Phyrexian Portal,2,ALL,SP,n,EN
 Planar Portal,3,INV,SP,n,EN
-Power Matrix,2,MMQ,SP,n,EN
+Power Matrix,1,MMQ,SP,n,EN
 "Predator, Flagship",1,NEM,SP,n,EN
 Rakdos Carnarium,1,DIS,SP,y,EN
 Razor Pendulum,1,MIR,MP,n,EN
@@ -607,7 +795,6 @@ Rushwood Grove,1,MMQ,SP,y,EN
 Sands of Time,2,VIS,SP,n,EN
 Sapphire Medallion,1,TMP,SP,n,EN
 Scorched Ruins,2,WTH,MP,n,EN
-Scroll Rack,1,TMP,SP,n,EN
 Sheltered Valley,1,ALL,SP,n,EN
 Shield Sphere,4,ALL,SP,n,EN
 Skull of Ramos,1,MMQ,SP,n,EN
@@ -626,11 +813,9 @@ Storage Matrix,3,UDS,SP,n,EN
 Storm Cauldron,2,6ED,SP,n,EN
 Storm Cauldron,2,7ED,SP,n,EN
 Teferi's Isle,1,MIR,MP,n,EN
-Teferi's Puzzle Box,1,VIS,SP,n,EN
 Temporal Aperture,1,USG,SP,n,EN
 Temporal Aperture,1,USG,MP,n,EN
 Terrain Generator,5,NEM,SP,n,EN
-Thawing Glaciers,1,ALL,MP,n,EN
 The Rack,1,3ED,HP,n,EN
 The Rack,1,TSP,SP,n,EN
 Thran Tome,1,WTH,SP,n,EN
@@ -642,10 +827,8 @@ Tsabo's Web,3,INV,SP,n,EN
 Underground River,1,7ED,MP,n,EN
 Undiscovered Paradise,1,VIS,SP,n,EN
 Undiscovered Paradise,2,VIS,MP,n,EN
-Urza's Bauble,1,ICE,SP,n,EN
-Urza's Bauble,1,ICE,MP,n,EN
 Urza's Bauble,3,5ED,SP,n,EN
-Urza's Filter,2,INV,SP,n,EN
+Urza's Filter,1,INV,SP,n,EN
 Urza's Incubator,2,UDS,SP,n,EN
 Urza's Mine,1,5ED,HP,n,EN
 Urza's Mine,9,5ED,SP,n,EN
@@ -671,4 +854,12 @@ Crystal Vein,4,MIR,SP,n,EN
 Crystal Vein,1,MIR,MP,n,EN
 Crystal Vein,4,6ED,SP,n,EN
 Millstone,1,4ED,MP,n,EN
-Glacial Chasm,2,ICE,MP,n,EN
+Glacial Chasm,1,ICE,MP,n,EN
+Spellskite,1,MM2,SP,n,EN
+Thran Temporal Gateway,1,DOM,NM,n,EN
+Artisan of Kozilek,1,C14,SP,n,EN
+Phyrexian Walker,22,VIS,SP,n,EN
+Angel's Trumpet,9,ULG,SP,n,EN
+Zhalfirin Void,2,DOM,SP,n,EN
+Izzet Boilerworks,1,GPT,SP,n,EN
+Boros Garrison,1,RAV,SP,n,EN
