@@ -25,6 +25,7 @@ export default function MyNavbar() {
         <Nav.Link className="fs-4 ml-5" href="/">Home</Nav.Link>
         <Nav.Link className="fs-4 ml-5" href="/about">About</Nav.Link>
         <Nav.Link className="fs-4 ml-5" href="/catalog">Catalog</Nav.Link>
+        <Nav.Link className="fs-4 ml-5" href="/calendar">Calendar</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

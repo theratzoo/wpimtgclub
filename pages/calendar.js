@@ -1,34 +1,50 @@
 import MyNavbar from './navbar'
 import Head from 'next/head'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import FullCalendar from "@fullcalendar/react";
+// The import order DOES MATTER here. If you change it, you'll get an error!
+import interactionPlugin from "@fullcalendar/interaction";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import "@fullcalendar/common/main.css";
+import "@fullcalendar/daygrid/main.css";
+import "@fullcalendar/timegrid/main.css";
+
+// https://github.com/jrsousadev/fullcalendar-scheduler-web
+// use this as examples to shape our calendar...
 
 export default function Calendar() {
-
+	const eventsCalendar = require("../data/events.json");
+	
 	return (
-		<div>
-			<Head>
-				<title>WPI MTG Club | Calendar</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-				<meta name="description" content="Calendar, where upcoming events are posted." />
-				<link rel="shortcut icon" href="/images/favicon.ico" />
-				<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
-				<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"/>
-				<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"/>
-      		</Head>
-			<main className="body">
-				<MyNavbar/>
-				<div className="container">
-					<div className="jumbotron">
-						<h1>Calendar</h1>
-					</div>
-					<br/>
-					<h2>The official calendar is a WIP, but below is our reoccuring events:</h2>
-					<br/>
-					<h3>Casuals: Wednesdays and Saturdays at 7PM in the CC long tables by Dunkin</h3>
-					<p>All formats are welcomed! EDH is the most popular format, but modern players exist too. Occasionally we have drafts, watch the discord server for news on those.</p>
-				</div>
-			</main>
-		</div>
-		
-	)
+		<FullCalendar
+      plugins={[timeGridPlugin, dayGridPlugin, interactionPlugin]}
+      initialView="timeGridWeek"
+      headerToolbar={{
+        left: "prev,next today",
+        center: "title",
+        right: "dayGridMonth,timeGridWeek,timeGridDay",
+      }}
+      locale="en-us"
+      //select={handleAddEventSelectAndOpenModal}
+      //eventClick={handleEditEventSelectAndOpenModal}
+      //eventChange={handleUpdateEventSelect}
+      initialEvents={eventsCalendar}
+      longPressDelay={1000}
+      eventLongPressDelay={1000}
+      selectLongPressDelay={1000}
+      selectable={true}
+      dayMaxEvents={true}
+      allDaySlot={false}
+      editable={true}
+      height="700px"
+      buttonText={{
+        today: "Today",
+        month: "Month",
+        week: "Week",
+        day: "Day",
+        list: "List",
+      }}
+    />
+		);		
 }
