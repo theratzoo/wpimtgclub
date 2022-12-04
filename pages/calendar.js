@@ -13,6 +13,8 @@ import "@fullcalendar/timegrid/main.css";
 // https://github.com/jrsousadev/fullcalendar-scheduler-web
 // use this as examples to shape our calendar...
 
+// https://fullcalendar.io/docs/event-object
+
 export default function Calendar() {
 	const eventsCalendar = require("../data/events.json");
 	
@@ -36,8 +38,9 @@ export default function Calendar() {
       selectable={true}
       dayMaxEvents={true}
       allDaySlot={false}
-      editable={true}
+      editable={false}
       height="700px"
+	  timeZone='local'
       buttonText={{
         today: "Today",
         month: "Month",
