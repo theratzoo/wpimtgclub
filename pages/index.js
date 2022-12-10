@@ -6,8 +6,34 @@ import styles from '../styles/Home.module.css'
 import MyNavbar from './navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './footer'
+import spreadsheet from '../spreadsheets/events_calendar.xlsx'
 
 export default function Home() {
+  // TODO: get today's date. only include things at the latest on the same date. anything earlier is IGNORED.
+  const sheets = Object.values(spreadsheet.Sheets);
+  const listOfEvents = []
+	for(let i=0; i<sheets.length; i++) {
+		const obj = Object.values(sheets[i])
+		const len = obj.length - 2
+		//console.log(obj)
+    const currDate = new Date();
+		for(let j=5; j<len; j+=5) {
+			
+			const name = obj[j+1].v; // name
+			const start = obj[j+2].v; // start
+			const end = obj[j+3].v; // end
+			const desc = obj[j+4].v; // desc
+			const img = obj[j+5].v; // img
+      const date = new Date(start)
+      const eventDate = new Date(start);
+      if(currDate <= eventDate && listOfEvents.length < 2) {
+        listOfEvents.push({name, date, desc, img});
+      } else if(listOfEvents.length >= 2) {
+        break;
+      }
+		}
+  }
+
   return (
     <div>
       <Head>
@@ -30,43 +56,24 @@ export default function Home() {
             <hr/>            
             <h2>Upcoming Events</h2>
             <div className="row">
-              <div className="col-sm-4">
+              <div className="col-sm-6">
               <Card className="customCard">
-                <Card.Title>&emsp;Wednesday Casuals</Card.Title>
-                <Card.Img variant="top" src="images/casuals.png" alt="casuals"/>
+                <Card.Title>&emsp;{listOfEvents[0].name + " - " +  listOfEvents[0].date.toDateString()} </Card.Title>
+                <Card.Img variant="top" src={"images/" + listOfEvents[0].img} alt={listOfEvents[0].name}/>
                 <Card.Body>
                   <Card.Text>
-                    Wednesdays, 7pm at Campus Center.<br/>
-                    Bring your cards and play Magic with your fellow peers.<br/>
-                    Special tournaments (drafts, constructed, etc.) announced on Discord<br/>
+                  {listOfEvents[0].desc}
                   </Card.Text>
                 </Card.Body>
               </Card>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-6">
               <Card className="customCard">
-                <Card.Title>&emsp;Saturday Casuals</Card.Title>
-                <Card.Img variant="top" src="images/casuals.png" alt="casuals"/>
+                <Card.Title>&emsp;{listOfEvents[1].name + " - " +  listOfEvents[1].date.toDateString()}</Card.Title>
+                <Card.Img variant="top" src={"images/" + listOfEvents[1].img} alt={listOfEvents[1].name}/>
                 <Card.Body>
                   <Card.Text>
-                    Saturdays, 7pm at Campus Center.<br/>
-                    Bring your cards and play Magic with your fellow peers.<br/>
-                    Special tournaments (drafts, constructed, etc.) announced on Discord<br/>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-              </div>
-              <div className="col-sm-4">
-              <Card className="customCard">
-                <Card.Title>&emsp;Gaming Weekend: April 29-30</Card.Title>
-                <Card.Img variant="top" src="images/newcapenna.jpeg" alt="gaming weekend"/>
-                <Card.Body>
-                  <Card.Text>
-                    Unity Hall, fourth floor.<br/>
-                    Friday at 7pm: New Capenna Draft<br/>
-                    Saturday at 1pm: Modern Tournament<br/>
-                    <br/>
-                    <br/>
+                    {listOfEvents[1].desc}
                   </Card.Text>
                 </Card.Body>
               </Card>

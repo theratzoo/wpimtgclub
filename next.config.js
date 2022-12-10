@@ -12,6 +12,13 @@ const withTM = require("next-transpile-modules")([
 module.exports = withTM({
   reactStrictMode: true,
   webpack: (config) => {
+    config.module.rules.push( 
+      {
+        rules: [
+          { test: /\.xlsx$/, loader: "webpack-xlsx-loader" }
+        ]
+      }
+    );
     config.resolve = {
       ...config.resolve,
       fallback: {

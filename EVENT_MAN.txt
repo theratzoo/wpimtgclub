@@ -1,0 +1,18 @@
+How to add/modify events:
+
+(1) Open spreadsheets/events_calendar.xsls
+(2) Go to the appropriate term sheet (i.e, C22, D22, etc.). If it does not exist, create one
+(3) Fill out each of the five fields:
+(a) Title: for normal events, put "Casuals", otherwise an appropriate title 
+(b) Start: the start time of the event, in EST and 24 hour time, following the format used in prior events 
+(c) End: end time of the event (for casuals, midnight is fine). Again, follow the same format as for Start time 
+(d) Description: a short description. Feel free to use the same for each casuals for the most part. Also feel free to update it.
+(e) Image: the image for the event that appears on the homepage of the website. A cool poster or promotional material would go well here.
+(4) Save the spreadsheet. Publish the changes:
+(a) Go to a termianl in the parent directory of the folder.
+(b) Type `git add .`
+(c) Type `git commit -m "added or modified events"
+(d) Type `git push`
+NOTE: if you have not used git before and need help installing/setting it up, ask a more CS-y officer or friend. Otherwise contact the owner of the repository for aid.
+
+After a few minutes, the changes should be reflected.

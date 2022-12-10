@@ -13,6 +13,7 @@
     "@fullcalendar/interaction": "^5.11.3",
     "@fullcalendar/react": "^5.11.3",
     "@fullcalendar/timegrid": "^5.11.3",
+    "@material-ui/core": "^4.12.4",
     "bootstrap": "^5.1.3",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
@@ -20,6 +21,7 @@
     "emailjs": "^3.7.0",
     "emailjs-com": "^3.2.0",
     "events": "^3.3.0",
+    "material-ui": "^0.20.2",
     "moment": "^2.29.4",
     "mongodb": "^4.3.1",
     "net": "^1.0.2",
@@ -32,6 +34,7 @@
     "react-dropdown-select": "^4.8.0",
     "react-select": "^5.2.1",
     "stream": "^0.0.2",
+    "tippy.js": "^6.3.7",
     "tls": "^0.0.1",
     "util": "^0.12.4",
     "write-file-p": "^1.0.8"
@@ -40,6 +43,8 @@
     "csv-loader": "^3.0.3",
     "dsv-loader": "^2.0.0",
     "eslint": "8.4.0",
-    "eslint-config-next": "12.0.7"
+    "eslint-config-next": "12.0.7",
+    "webpack-xlsx-loader": "^1.0.0",
+    "xlsx-loader": "^1.0.3"
   }
 }

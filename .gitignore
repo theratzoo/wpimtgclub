@@ -34,5 +34,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-/__pycache__
+__pycache__
 .apikey
